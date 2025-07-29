@@ -1,0 +1,14 @@
+python-dotenv
+pandas
+numpy
+pymongo
+certifi
+pyaml
+scikit-learn
+nltk
+scipy
+spacy
+gensim
+mlflow
+dagshub
+joblib
