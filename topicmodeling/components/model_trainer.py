@@ -11,6 +11,8 @@ from gensim.models import LsiModel
 from gensim.corpora import Dictionary
 from gensim.models.coherencemodel import CoherenceModel
 
+import mlflow
+import dagshub
 import joblib
 
 class ModelTrainer:
@@ -18,6 +20,7 @@ class ModelTrainer:
         try:
             self.model_trainer_config = model_trainer_config
             self.data_transformation_artifact = data_transformation_artifact
+            dagshub.init(repo_owner='nagendrakp02', repo_name='TopicModeling', mlflow=True)
         except Exception as e:
             raise TopicModelingException(e, sys)
 
@@ -85,18 +88,35 @@ class ModelTrainer:
                 for topic_id, keywords in topic_keywords.items():
                     f.write(f"Topic {topic_id}: {', '.join(keywords)}\n")
 
-            # Create Artifact to return
+            # MLflow Tracking
+            with mlflow.start_run():
+                mlflow.log_param("LDA_Best_Num_Topics", lda_best_num_topics)
+                mlflow.log_metric("LDA_Best_Coherence", best_lda_coherence)
+                mlflow.log_metric("LSA_Coherence", lsa_coherence)
+
+                # Save only Topic IDs and 10 keywords per topic (shortened logging)
+                for topic_id, keywords in topic_keywords.items():
+                    mlflow.log_param(f"Topic_{topic_id}_Keywords", ', '.join(keywords))
+
+                # Log artifacts folders
+                mlflow.log_artifacts(lda_model_dir, artifact_path="lda_model")
+                mlflow.log_artifacts(lsa_model_dir, artifact_path="lsa_model")
+                mlflow.log_artifact(os.path.join(model_dir, "dictionary.dict"), artifact_path="artifacts")
+                mlflow.log_artifact(os.path.join(model_dir, "corpus.pkl"), artifact_path="artifacts")
+                mlflow.log_artifact(keywords_file, artifact_path="topic_keywords")
+
+            # Console Summary Output
+            print(f"\n✅ Model Training Completed Successfully!")
+            print(f"LDA Topics: {lda_best_num_topics} | LDA Coherence: {best_lda_coherence:.4f} | LSA Coherence: {lsa_coherence:.4f}")
+            print(f"Artifacts saved at: {model_dir}")
+            print(f"Topics and Keywords saved in: {keywords_file}")
+
+            # Return Artifact
             model_trainer_artifact = ModelTrainerArtifact(
                 trained_model_file_path=model_dir,
                 train_metric_artifact=None,
                 test_metric_artifact=None
             )
-
-            print(f"\n✅ Model Training Completed Successfully!")
-            print(f"LDA Topics: {lda_best_num_topics} | LDA Coherence: {best_lda_coherence:.4f} | LSA Coherence: {lsa_coherence:.4f}")
-            print(f"Artifacts saved at: {model_dir}")
-            print(f"Topics and Keywords are saved in: {keywords_file}")
-
             return model_trainer_artifact
 
         except Exception as e:
