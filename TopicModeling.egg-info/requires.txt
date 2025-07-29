@@ -12,3 +12,5 @@ gensim
 mlflow
 dagshub
 joblib
+pyLDAvis
+wordcloud

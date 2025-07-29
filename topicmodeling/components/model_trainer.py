@@ -1,5 +1,6 @@
 import os
 import sys
+import joblib
 
 from topicmodeling.exception.exception import TopicModelingException
 from topicmodeling.entity.artifact_entity import DataTransformationArtifact, ModelTrainerArtifact
@@ -13,14 +14,19 @@ from gensim.models.coherencemodel import CoherenceModel
 
 import mlflow
 import dagshub
-import joblib
+
+from wordcloud import WordCloud
+import pyLDAvis
+import pyLDAvis.gensim_models
+
+import matplotlib.pyplot as plt
 
 class ModelTrainer:
     def __init__(self, model_trainer_config: ModelTrainerConfig, data_transformation_artifact: DataTransformationArtifact):
         try:
             self.model_trainer_config = model_trainer_config
             self.data_transformation_artifact = data_transformation_artifact
-            dagshub.init(repo_owner='nagendrakp02', repo_name='TopicModeling', mlflow=True)
+            dagshub.init(repo_owner='nagendrakp02', repo_name='network_security', mlflow=True)
         except Exception as e:
             raise TopicModelingException(e, sys)
 
@@ -31,19 +37,47 @@ class ModelTrainer:
         except Exception as e:
             raise TopicModelingException(e, sys)
 
+    def generate_wordcloud(self, best_lda_model, dictionary, corpus):
+        try:
+            topics = best_lda_model.show_topics(formatted=False)
+            all_words = dict()
+
+            for topic in topics:
+                for word, weight in topic[1]:
+                    all_words[word] = all_words.get(word, 0) + weight
+
+            wc = WordCloud(width=800, height=600, background_color='white')
+            wc.generate_from_frequencies(all_words)
+
+            wordcloud_path = os.path.join(self.model_trainer_config.model_trainer_dir, "lda_wordcloud.png")
+            wc.to_file(wordcloud_path)
+
+            return wordcloud_path
+
+        except Exception as e:
+            raise TopicModelingException(e, sys)
+
+    def generate_pyldavis_html(self, best_lda_model, corpus, dictionary):
+        try:
+            vis = pyLDAvis.gensim_models.prepare(best_lda_model, corpus, dictionary)
+            html_path = os.path.join(self.model_trainer_config.model_trainer_dir, "lda_visualization.html")
+            pyLDAvis.save_html(vis, html_path)
+
+            return html_path
+        except Exception as e:
+            raise TopicModelingException(e, sys)
+
     def train_topic_models(self, tokenized_texts):
         try:
             dictionary = Dictionary(tokenized_texts)
             corpus = [dictionary.doc2bow(text) for text in tokenized_texts]
 
-            # Sanity Check
             if len(dictionary.token2id) == 0:
                 raise Exception("Dictionary is empty after preprocessing.")
             empty_docs = [doc for doc in corpus if len(doc) == 0]
             if len(empty_docs) > 0:
                 raise Exception(f"{len(empty_docs)} documents are empty after BoW transformation.")
 
-            # Train LDA Model and pick best coherence
             best_lda_model = None
             best_lda_coherence = -1
             lda_best_num_topics = 0
@@ -57,18 +91,15 @@ class ModelTrainer:
                     best_lda_coherence = coherence
                     lda_best_num_topics = num_topics
 
-            # Train LSA Model
             lsa_model = LsiModel(corpus=corpus, id2word=dictionary, num_topics=10)
             lsa_coherence = self.compute_coherence_score(lsa_model, tokenized_texts, dictionary, corpus)
 
-            # Extract Top 10 Keywords per Topic from Best LDA Model
             topic_keywords = {}
             for topic_id in range(best_lda_model.num_topics):
                 words = best_lda_model.show_topic(topic_id, topn=10)
                 keywords = [word for word, _ in words]
                 topic_keywords[f"Topic_{topic_id}"] = keywords
 
-            # Save Models and Artifacts
             model_dir = self.model_trainer_config.model_trainer_dir
             lda_model_dir = os.path.join(model_dir, "lda_model")
             lsa_model_dir = os.path.join(model_dir, "lsa_model")
@@ -82,11 +113,14 @@ class ModelTrainer:
             dictionary.save(os.path.join(model_dir, "dictionary.dict"))
             joblib.dump(corpus, os.path.join(model_dir, "corpus.pkl"))
 
-            # Save Topic Keywords to File
             keywords_file = os.path.join(model_dir, "lda_topic_keywords.txt")
             with open(keywords_file, "w") as f:
                 for topic_id, keywords in topic_keywords.items():
                     f.write(f"Topic {topic_id}: {', '.join(keywords)}\n")
+
+            # Generate Visualizations
+            wordcloud_path = self.generate_wordcloud(best_lda_model, dictionary, corpus)
+            pyldavis_html_path = self.generate_pyldavis_html(best_lda_model, corpus, dictionary)
 
             # MLflow Tracking
             with mlflow.start_run():
@@ -94,29 +128,24 @@ class ModelTrainer:
                 mlflow.log_metric("LDA_Best_Coherence", best_lda_coherence)
                 mlflow.log_metric("LSA_Coherence", lsa_coherence)
 
-                # Save only Topic IDs and 10 keywords per topic (shortened logging)
-                for topic_id, keywords in topic_keywords.items():
-                    mlflow.log_param(f"Topic_{topic_id}_Keywords", ', '.join(keywords))
-
-                # Log artifacts folders
-                mlflow.log_artifacts(lda_model_dir, artifact_path="lda_model")
-                mlflow.log_artifacts(lsa_model_dir, artifact_path="lsa_model")
-                mlflow.log_artifact(os.path.join(model_dir, "dictionary.dict"), artifact_path="artifacts")
-                mlflow.log_artifact(os.path.join(model_dir, "corpus.pkl"), artifact_path="artifacts")
+                mlflow.log_artifact(lda_model_dir, artifact_path="lda_model")
+                mlflow.log_artifact(lsa_model_dir, artifact_path="lsa_model")
                 mlflow.log_artifact(keywords_file, artifact_path="topic_keywords")
+                mlflow.log_artifact(wordcloud_path, artifact_path="visualizations")
+                mlflow.log_artifact(pyldavis_html_path, artifact_path="visualizations")
 
-            # Console Summary Output
             print(f"\n✅ Model Training Completed Successfully!")
             print(f"LDA Topics: {lda_best_num_topics} | LDA Coherence: {best_lda_coherence:.4f} | LSA Coherence: {lsa_coherence:.4f}")
             print(f"Artifacts saved at: {model_dir}")
-            print(f"Topics and Keywords saved in: {keywords_file}")
+            print(f"WordCloud saved at: {wordcloud_path}")
+            print(f"pyLDAvis saved at: {pyldavis_html_path}")
 
-            # Return Artifact
             model_trainer_artifact = ModelTrainerArtifact(
                 trained_model_file_path=model_dir,
                 train_metric_artifact=None,
                 test_metric_artifact=None
             )
+
             return model_trainer_artifact
 
         except Exception as e:

@@ -1,10 +1,10 @@
-from networksecurity.constant.training_pipeline import SAVED_MODEL_DIR,MODEL_FILE_NAME
+from topicmodeling.constant.training_pipeline import SAVED_MODEL_DIR,MODEL_FILE_NAME
 
 import os
 import sys
 
-from networksecurity.exception.exception import NetworkSecurityException
-from networksecurity.logging.logger import logging
+from topicmodeling.exception.exception import TopicModelingException
+from topicmodeling.logging.logger import logging
 
 class NetworkModel:
     def __init__(self,preprocessor,model):
@@ -12,7 +12,7 @@ class NetworkModel:
             self.preprocessor = preprocessor
             self.model = model
         except Exception as e:
-            raise NetworkSecurityException(e,sys)
+            raise TopicModelingException(e,sys)
     
     def predict(self,x):
         try:
@@ -20,4 +20,4 @@ class NetworkModel:
             y_hat = self.model.predict(x_transform)
             return y_hat
         except Exception as e:
-            raise NetworkSecurityException(e,sys)
+            raise TopicModelingException(e,sys)

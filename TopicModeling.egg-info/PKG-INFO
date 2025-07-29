@@ -17,6 +17,8 @@ Requires-Dist: gensim
 Requires-Dist: mlflow
 Requires-Dist: dagshub
 Requires-Dist: joblib
+Requires-Dist: pyLDAvis
+Requires-Dist: wordcloud
 Dynamic: author
 Dynamic: author-email
 Dynamic: requires-dist
