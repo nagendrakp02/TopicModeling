@@ -1,8 +1,19 @@
+<<<<<<< HEAD
 columns: 
+=======
+columns:
+  - category: str
+  - news: str
+  
+>>>>>>> 8a296d244db1cd213a5650f3f812d2268f7e15f3
 
   - category: str
   - text: str
   
 
 numerical_columns:
+<<<<<<< HEAD
  - None
+=======
+  - None
+>>>>>>> 8a296d244db1cd213a5650f3f812d2268f7e15f3
