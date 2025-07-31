@@ -106,7 +106,7 @@ class ModelTrainer:
                 mlflow.log_artifact(keywords_file, artifact_path="topic_keywords")
 
             # Console Summary Output
-            print(f"\n✅ Model Training Completed Successfully!")
+            print(f"\n Model Training Completed Successfully!")
             print(f"LDA Topics: {lda_best_num_topics} | LDA Coherence: {best_lda_coherence:.4f} | LSA Coherence: {lsa_coherence:.4f}")
             print(f"Artifacts saved at: {model_dir}")
             print(f"Topics and Keywords saved in: {keywords_file}")

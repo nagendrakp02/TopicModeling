@@ -38,13 +38,25 @@ class DataTransformation:
     def text_preprocessing(self, text_series: pd.Series) -> List[List[str]]:
         try:
             lemmatizer = WordNetLemmatizer()
-            stop_words = set(stopwords.words('english'))
+            nltk_stop_words = set(stopwords.words('english'))
+
+            # Custom Stop Words
+            additional_stop_words = ['said', 'told', 'called', 'use', 'know', 'came', 'based', 'way', 'added', 'including', 'got']
+            custom_stop_words = nltk_stop_words.union(additional_stop_words)
 
             def clean_and_tokenize(text):
+                # Lowercase
                 text = text.lower()
-                text = re.sub(r'[^a-zA-Z\s]', '', text)
+
+                # Remove non-alphabetic characters
+                text = re.sub(r'[^a-z\s]', '', text)
+
+                # Tokenization
                 tokens = word_tokenize(text)
-                tokens = [lemmatizer.lemmatize(word) for word in tokens if word not in stop_words]
+
+                # Stopword Removal + Lemmatization
+                tokens = [lemmatizer.lemmatize(word) for word in tokens if word not in custom_stop_words and len(word) > 2]
+
                 return tokens
 
             tokenized_corpus = text_series.apply(clean_and_tokenize).tolist()
@@ -55,9 +67,13 @@ class DataTransformation:
     def initiate_data_transformation(self) -> DataTransformationArtifact:
         logging.info("Starting Data Transformation Process for Topic Modeling")
         try:
+            # Read Data
             train_df = self.read_data(self.data_validation_artifact.valid_train_file_path)
 
+            # Preprocess Text Column
             tokenized_corpus = self.text_preprocessing(train_df['text'])
+
+            # Save Tokenized Corpus Object
             save_object(self.data_transformation_config.transformed_object_file_path, tokenized_corpus)
 
             data_transformation_artifact = DataTransformationArtifact(

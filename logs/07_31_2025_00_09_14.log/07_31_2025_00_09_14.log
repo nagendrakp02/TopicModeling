@@ -1,0 +1,517 @@
+[ 2025-07-31 00:09:15,109 ] 164 numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+[ 2025-07-31 00:09:19,017 ] 30 root - INFO - Initiating Data Ingestion
+[ 2025-07-31 00:09:21,316 ] 65 root - INFO - Performed train test split on the dataframe
+[ 2025-07-31 00:09:21,316 ] 67 root - INFO - Exited split_data_as_train_test method of Data_Ingestion class
+[ 2025-07-31 00:09:21,462 ] 75 root - INFO - Exporting train and test file path.
+[ 2025-07-31 00:09:21,561 ] 84 root - INFO - Exported train and test file path.
+[ 2025-07-31 00:09:21,563 ] 32 root - INFO - Data Ingestion Completed
+[ 2025-07-31 00:09:21,563 ] 38 root - INFO - Initiating Data Validation
+[ 2025-07-31 00:09:21,659 ] 32 root - INFO - Required number of columns:2
+[ 2025-07-31 00:09:21,659 ] 33 root - INFO - Data frame has columns:2
+[ 2025-07-31 00:09:21,659 ] 32 root - INFO - Required number of columns:2
+[ 2025-07-31 00:09:21,659 ] 33 root - INFO - Data frame has columns:2
+[ 2025-07-31 00:09:21,779 ] 40 root - INFO - Data Validation Completed
+[ 2025-07-31 00:09:21,779 ] 46 root - INFO - Initiating Data Transformation
+[ 2025-07-31 00:09:21,779 ] 68 root - INFO - Starting Data Transformation Process for Topic Modeling
+[ 2025-07-31 00:09:29,021 ] 48 root - INFO - Entered the save_object method of MainUtils class
+[ 2025-07-31 00:09:29,101 ] 52 root - INFO - Exited the save_object method of MainUtils class
+[ 2025-07-31 00:09:29,101 ] 84 root - INFO - Data Transformation Artifact Created: DataTransformationArtifact(transformed_object_file_path='Artifacts\\07_31_2025_00_09_15\\data_transformation\\transformed_object\\preprocessing.pkl', transformed_train_file_path=None, transformed_test_file_path=None)
+[ 2025-07-31 00:09:29,116 ] 48 root - INFO - Data Transformation Completed
+[ 2025-07-31 00:09:30,051 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2025-07-31 00:09:30,051 ] 107 dagshub - INFO - Accessing as nagendrakp02
+[ 2025-07-31 00:09:30,570 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/nagendrakp02/TopicModeling "HTTP/1.1 200 OK"
+[ 2025-07-31 00:09:30,981 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2025-07-31 00:09:30,983 ] 107 dagshub - INFO - Initialized MLflow to track repo "nagendrakp02/TopicModeling"
+[ 2025-07-31 00:09:30,983 ] 107 dagshub - INFO - Repository nagendrakp02/TopicModeling initialized!
+[ 2025-07-31 00:09:30,983 ] 54 root - INFO - Initiating Model Training
+[ 2025-07-31 00:09:31,048 ] 201 gensim.corpora.dictionary - INFO - adding document #0 to Dictionary<0 unique tokens: []>
+[ 2025-07-31 00:09:31,398 ] 206 gensim.corpora.dictionary - INFO - built Dictionary<24432 unique tokens: ['absolutely', 'act', 'already', 'also', 'among']...> from 1780 documents (total 364472 corpus positions)
+[ 2025-07-31 00:09:31,414 ] 448 gensim.utils - INFO - Dictionary lifecycle event {'msg': "built Dictionary<24432 unique tokens: ['absolutely', 'act', 'already', 'also', 'among']...> from 1780 documents (total 364472 corpus positions)", 'datetime': '2025-07-31T00:09:31.398375', 'gensim': '4.3.2', 'python': '3.10.0 | packaged by conda-forge | (default, Nov 10 2021, 13:20:59) [MSC v.1916 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'created'}
+[ 2025-07-31 00:09:31,588 ] 577 gensim.models.ldamodel - INFO - using symmetric alpha at 0.2
+[ 2025-07-31 00:09:31,588 ] 577 gensim.models.ldamodel - INFO - using symmetric eta at 0.2
+[ 2025-07-31 00:09:31,604 ] 482 gensim.models.ldamodel - INFO - using serial LDA version on this node
+[ 2025-07-31 00:09:31,604 ] 948 gensim.models.ldamodel - INFO - running online (multi-pass) LDA training, 5 topics, 10 passes over the supplied corpus of 1780 documents, updating model once every 1780 documents, evaluating perplexity every 0 documents, iterating 50x with a convergence threshold of 0.001000
+[ 2025-07-31 00:09:31,604 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 0, at document #1780/1780
+[ 2025-07-31 00:09:32,625 ] 1197 gensim.models.ldamodel - INFO - topic #0 (0.200): 0.007*"game" + 0.006*"year" + 0.004*"also" + 0.004*"would" + 0.004*"new" + 0.003*"one" + 0.003*"say" + 0.003*"first" + 0.003*"people" + 0.003*"world"
+[ 2025-07-31 00:09:32,672 ] 1197 gensim.models.ldamodel - INFO - topic #1 (0.200): 0.007*"would" + 0.007*"year" + 0.006*"new" + 0.005*"people" + 0.004*"also" + 0.004*"could" + 0.004*"one" + 0.003*"government" + 0.003*"make" + 0.003*"last"
+[ 2025-07-31 00:09:32,672 ] 1197 gensim.models.ldamodel - INFO - topic #2 (0.200): 0.005*"one" + 0.005*"year" + 0.005*"would" + 0.004*"also" + 0.004*"people" + 0.004*"time" + 0.004*"new" + 0.003*"two" + 0.003*"first" + 0.003*"number"
+[ 2025-07-31 00:09:32,672 ] 1197 gensim.models.ldamodel - INFO - topic #3 (0.200): 0.006*"year" + 0.005*"would" + 0.005*"people" + 0.005*"also" + 0.004*"new" + 0.004*"could" + 0.003*"last" + 0.003*"two" + 0.003*"one" + 0.003*"time"
+[ 2025-07-31 00:09:32,672 ] 1197 gensim.models.ldamodel - INFO - topic #4 (0.200): 0.006*"would" + 0.005*"year" + 0.005*"also" + 0.003*"time" + 0.003*"company" + 0.003*"one" + 0.003*"game" + 0.003*"people" + 0.003*"last" + 0.003*"new"
+[ 2025-07-31 00:09:32,672 ] 1075 gensim.models.ldamodel - INFO - topic diff=2.318594, rho=1.000000
+[ 2025-07-31 00:09:32,672 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 1, at document #1780/1780
+[ 2025-07-31 00:09:33,718 ] 1197 gensim.models.ldamodel - INFO - topic #0 (0.200): 0.009*"game" + 0.006*"year" + 0.004*"one" + 0.004*"also" + 0.003*"first" + 0.003*"new" + 0.003*"world" + 0.003*"would" + 0.003*"time" + 0.003*"player"
+[ 2025-07-31 00:09:33,718 ] 1197 gensim.models.ldamodel - INFO - topic #1 (0.200): 0.008*"would" + 0.006*"year" + 0.006*"people" + 0.005*"new" + 0.004*"government" + 0.004*"also" + 0.004*"could" + 0.004*"one" + 0.003*"labour" + 0.003*"party"
+[ 2025-07-31 00:09:33,718 ] 1197 gensim.models.ldamodel - INFO - topic #2 (0.200): 0.006*"year" + 0.005*"one" + 0.004*"also" + 0.004*"would" + 0.004*"best" + 0.004*"time" + 0.003*"number" + 0.003*"new" + 0.003*"last" + 0.003*"people"
+[ 2025-07-31 00:09:33,718 ] 1197 gensim.models.ldamodel - INFO - topic #3 (0.200): 0.006*"year" + 0.006*"people" + 0.005*"also" + 0.005*"would" + 0.004*"new" + 0.003*"could" + 0.003*"last" + 0.003*"one" + 0.003*"two" + 0.003*"time"
+[ 2025-07-31 00:09:33,720 ] 1197 gensim.models.ldamodel - INFO - topic #4 (0.200): 0.006*"year" + 0.006*"would" + 0.005*"also" + 0.004*"company" + 0.003*"new" + 0.003*"last" + 0.003*"one" + 0.003*"time" + 0.003*"sale" + 0.003*"game"
+[ 2025-07-31 00:09:33,720 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.644255, rho=0.577350
+[ 2025-07-31 00:09:33,720 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 2, at document #1780/1780
+[ 2025-07-31 00:09:34,502 ] 1197 gensim.models.ldamodel - INFO - topic #0 (0.200): 0.011*"game" + 0.006*"year" + 0.004*"one" + 0.004*"first" + 0.004*"also" + 0.003*"player" + 0.003*"world" + 0.003*"time" + 0.003*"new" + 0.003*"would"
+[ 2025-07-31 00:09:34,502 ] 1197 gensim.models.ldamodel - INFO - topic #1 (0.200): 0.009*"would" + 0.006*"people" + 0.005*"year" + 0.005*"new" + 0.005*"government" + 0.004*"could" + 0.004*"also" + 0.004*"labour" + 0.004*"party" + 0.004*"election"
+[ 2025-07-31 00:09:34,502 ] 1197 gensim.models.ldamodel - INFO - topic #2 (0.200): 0.006*"year" + 0.005*"best" + 0.005*"one" + 0.005*"film" + 0.004*"also" + 0.004*"award" + 0.004*"number" + 0.004*"last" + 0.004*"time" + 0.003*"first"
+[ 2025-07-31 00:09:34,502 ] 1197 gensim.models.ldamodel - INFO - topic #3 (0.200): 0.006*"year" + 0.006*"people" + 0.005*"also" + 0.004*"would" + 0.004*"new" + 0.003*"mobile" + 0.003*"music" + 0.003*"one" + 0.003*"could" + 0.003*"last"
+[ 2025-07-31 00:09:34,502 ] 1197 gensim.models.ldamodel - INFO - topic #4 (0.200): 0.006*"year" + 0.005*"would" + 0.005*"also" + 0.005*"company" + 0.004*"new" + 0.003*"sale" + 0.003*"last" + 0.003*"one" + 0.003*"time" + 0.003*"bank"
+[ 2025-07-31 00:09:34,502 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.447320, rho=0.500000
+[ 2025-07-31 00:09:34,502 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 3, at document #1780/1780
+[ 2025-07-31 00:09:35,288 ] 1197 gensim.models.ldamodel - INFO - topic #0 (0.200): 0.012*"game" + 0.006*"year" + 0.004*"first" + 0.004*"player" + 0.004*"one" + 0.004*"time" + 0.004*"world" + 0.003*"also" + 0.003*"win" + 0.003*"two"
+[ 2025-07-31 00:09:35,386 ] 1197 gensim.models.ldamodel - INFO - topic #1 (0.200): 0.009*"would" + 0.006*"people" + 0.006*"government" + 0.005*"new" + 0.005*"year" + 0.005*"labour" + 0.005*"could" + 0.004*"also" + 0.004*"party" + 0.004*"election"
+[ 2025-07-31 00:09:35,386 ] 1197 gensim.models.ldamodel - INFO - topic #2 (0.200): 0.007*"year" + 0.006*"best" + 0.006*"film" + 0.005*"award" + 0.005*"one" + 0.005*"also" + 0.004*"number" + 0.004*"last" + 0.003*"time" + 0.003*"first"
+[ 2025-07-31 00:09:35,386 ] 1197 gensim.models.ldamodel - INFO - topic #3 (0.200): 0.007*"people" + 0.006*"year" + 0.005*"also" + 0.004*"mobile" + 0.004*"would" + 0.004*"new" + 0.004*"music" + 0.004*"phone" + 0.003*"one" + 0.003*"digital"
+[ 2025-07-31 00:09:35,386 ] 1197 gensim.models.ldamodel - INFO - topic #4 (0.200): 0.007*"year" + 0.005*"company" + 0.005*"would" + 0.005*"also" + 0.004*"new" + 0.004*"sale" + 0.004*"last" + 0.003*"bank" + 0.003*"firm" + 0.003*"price"
+[ 2025-07-31 00:09:35,394 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.313617, rho=0.447214
+[ 2025-07-31 00:09:35,394 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 4, at document #1780/1780
+[ 2025-07-31 00:09:36,088 ] 1197 gensim.models.ldamodel - INFO - topic #0 (0.200): 0.012*"game" + 0.005*"year" + 0.005*"player" + 0.004*"first" + 0.004*"one" + 0.004*"time" + 0.004*"win" + 0.004*"england" + 0.004*"world" + 0.004*"play"
+[ 2025-07-31 00:09:36,088 ] 1197 gensim.models.ldamodel - INFO - topic #1 (0.200): 0.009*"would" + 0.006*"people" + 0.006*"government" + 0.005*"new" + 0.005*"labour" + 0.005*"year" + 0.005*"could" + 0.004*"also" + 0.004*"party" + 0.004*"election"
+[ 2025-07-31 00:09:36,088 ] 1197 gensim.models.ldamodel - INFO - topic #2 (0.200): 0.007*"year" + 0.007*"best" + 0.007*"film" + 0.006*"award" + 0.005*"one" + 0.005*"also" + 0.004*"number" + 0.004*"last" + 0.003*"show" + 0.003*"first"
+[ 2025-07-31 00:09:36,088 ] 1197 gensim.models.ldamodel - INFO - topic #3 (0.200): 0.007*"people" + 0.006*"year" + 0.005*"also" + 0.005*"mobile" + 0.004*"music" + 0.004*"phone" + 0.004*"new" + 0.004*"would" + 0.004*"technology" + 0.004*"digital"
+[ 2025-07-31 00:09:36,088 ] 1197 gensim.models.ldamodel - INFO - topic #4 (0.200): 0.008*"year" + 0.005*"company" + 0.005*"also" + 0.005*"would" + 0.004*"new" + 0.004*"sale" + 0.004*"bank" + 0.004*"market" + 0.004*"last" + 0.004*"price"
+[ 2025-07-31 00:09:36,088 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.228742, rho=0.408248
+[ 2025-07-31 00:09:36,088 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 5, at document #1780/1780
+[ 2025-07-31 00:09:36,766 ] 1197 gensim.models.ldamodel - INFO - topic #0 (0.200): 0.013*"game" + 0.005*"year" + 0.005*"player" + 0.005*"first" + 0.004*"time" + 0.004*"england" + 0.004*"one" + 0.004*"win" + 0.004*"world" + 0.004*"play"
+[ 2025-07-31 00:09:36,766 ] 1197 gensim.models.ldamodel - INFO - topic #1 (0.200): 0.010*"would" + 0.006*"people" + 0.006*"government" + 0.005*"labour" + 0.005*"new" + 0.005*"year" + 0.005*"could" + 0.005*"party" + 0.005*"election" + 0.004*"also"
+[ 2025-07-31 00:09:36,766 ] 1197 gensim.models.ldamodel - INFO - topic #2 (0.200): 0.008*"film" + 0.008*"best" + 0.008*"year" + 0.007*"award" + 0.005*"one" + 0.005*"also" + 0.004*"number" + 0.004*"last" + 0.004*"show" + 0.003*"first"
+[ 2025-07-31 00:09:36,766 ] 1197 gensim.models.ldamodel - INFO - topic #3 (0.200): 0.008*"people" + 0.006*"year" + 0.005*"mobile" + 0.005*"also" + 0.005*"phone" + 0.005*"music" + 0.005*"technology" + 0.004*"new" + 0.004*"digital" + 0.004*"would"
+[ 2025-07-31 00:09:36,766 ] 1197 gensim.models.ldamodel - INFO - topic #4 (0.200): 0.008*"year" + 0.006*"company" + 0.005*"also" + 0.004*"would" + 0.004*"new" + 0.004*"market" + 0.004*"bank" + 0.004*"sale" + 0.004*"firm" + 0.004*"price"
+[ 2025-07-31 00:09:36,766 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.172083, rho=0.377964
+[ 2025-07-31 00:09:36,766 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 6, at document #1780/1780
+[ 2025-07-31 00:09:37,466 ] 1197 gensim.models.ldamodel - INFO - topic #0 (0.200): 0.013*"game" + 0.005*"year" + 0.005*"player" + 0.005*"first" + 0.004*"england" + 0.004*"time" + 0.004*"win" + 0.004*"one" + 0.004*"play" + 0.004*"world"
+[ 2025-07-31 00:09:37,466 ] 1197 gensim.models.ldamodel - INFO - topic #1 (0.200): 0.010*"would" + 0.006*"people" + 0.006*"government" + 0.005*"labour" + 0.005*"new" + 0.005*"party" + 0.005*"election" + 0.005*"could" + 0.004*"also" + 0.004*"year"
+[ 2025-07-31 00:09:37,468 ] 1197 gensim.models.ldamodel - INFO - topic #2 (0.200): 0.009*"film" + 0.008*"best" + 0.008*"year" + 0.007*"award" + 0.005*"one" + 0.005*"also" + 0.004*"show" + 0.004*"number" + 0.004*"last" + 0.003*"first"
+[ 2025-07-31 00:09:37,468 ] 1197 gensim.models.ldamodel - INFO - topic #3 (0.200): 0.008*"people" + 0.006*"mobile" + 0.006*"year" + 0.005*"also" + 0.005*"phone" + 0.005*"technology" + 0.005*"music" + 0.004*"new" + 0.004*"digital" + 0.004*"would"
+[ 2025-07-31 00:09:37,468 ] 1197 gensim.models.ldamodel - INFO - topic #4 (0.200): 0.008*"year" + 0.006*"company" + 0.005*"market" + 0.005*"bank" + 0.005*"also" + 0.004*"new" + 0.004*"sale" + 0.004*"would" + 0.004*"firm" + 0.004*"price"
+[ 2025-07-31 00:09:37,469 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.133625, rho=0.353553
+[ 2025-07-31 00:09:37,469 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 7, at document #1780/1780
+[ 2025-07-31 00:09:38,131 ] 1197 gensim.models.ldamodel - INFO - topic #0 (0.200): 0.013*"game" + 0.005*"player" + 0.005*"year" + 0.005*"first" + 0.005*"england" + 0.004*"win" + 0.004*"time" + 0.004*"one" + 0.004*"play" + 0.004*"world"
+[ 2025-07-31 00:09:38,131 ] 1197 gensim.models.ldamodel - INFO - topic #1 (0.200): 0.010*"would" + 0.006*"government" + 0.006*"people" + 0.005*"labour" + 0.005*"new" + 0.005*"party" + 0.005*"election" + 0.005*"could" + 0.004*"also" + 0.004*"say"
+[ 2025-07-31 00:09:38,131 ] 1197 gensim.models.ldamodel - INFO - topic #2 (0.200): 0.009*"film" + 0.008*"best" + 0.008*"year" + 0.007*"award" + 0.005*"one" + 0.005*"also" + 0.004*"show" + 0.004*"number" + 0.004*"last" + 0.003*"star"
+[ 2025-07-31 00:09:38,131 ] 1197 gensim.models.ldamodel - INFO - topic #3 (0.200): 0.008*"people" + 0.006*"mobile" + 0.006*"year" + 0.006*"technology" + 0.005*"phone" + 0.005*"also" + 0.005*"music" + 0.005*"new" + 0.004*"digital" + 0.004*"million"
+[ 2025-07-31 00:09:38,131 ] 1197 gensim.models.ldamodel - INFO - topic #4 (0.200): 0.009*"year" + 0.006*"company" + 0.005*"market" + 0.005*"bank" + 0.004*"also" + 0.004*"firm" + 0.004*"sale" + 0.004*"new" + 0.004*"growth" + 0.004*"price"
+[ 2025-07-31 00:09:38,131 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.107238, rho=0.333333
+[ 2025-07-31 00:09:38,131 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 8, at document #1780/1780
+[ 2025-07-31 00:09:38,780 ] 1197 gensim.models.ldamodel - INFO - topic #0 (0.200): 0.013*"game" + 0.005*"player" + 0.005*"year" + 0.005*"first" + 0.005*"england" + 0.005*"win" + 0.004*"time" + 0.004*"one" + 0.004*"play" + 0.004*"world"
+[ 2025-07-31 00:09:38,780 ] 1197 gensim.models.ldamodel - INFO - topic #1 (0.200): 0.010*"would" + 0.006*"government" + 0.006*"people" + 0.005*"labour" + 0.005*"party" + 0.005*"new" + 0.005*"election" + 0.005*"could" + 0.004*"say" + 0.004*"minister"
+[ 2025-07-31 00:09:38,780 ] 1197 gensim.models.ldamodel - INFO - topic #2 (0.200): 0.010*"film" + 0.009*"best" + 0.008*"year" + 0.008*"award" + 0.005*"one" + 0.005*"also" + 0.004*"show" + 0.004*"number" + 0.004*"last" + 0.004*"star"
+[ 2025-07-31 00:09:38,780 ] 1197 gensim.models.ldamodel - INFO - topic #3 (0.200): 0.008*"people" + 0.006*"mobile" + 0.006*"technology" + 0.006*"phone" + 0.006*"year" + 0.005*"also" + 0.005*"music" + 0.005*"new" + 0.004*"digital" + 0.004*"service"
+[ 2025-07-31 00:09:38,780 ] 1197 gensim.models.ldamodel - INFO - topic #4 (0.200): 0.009*"year" + 0.006*"company" + 0.005*"market" + 0.005*"bank" + 0.005*"firm" + 0.005*"growth" + 0.005*"sale" + 0.004*"price" + 0.004*"also" + 0.004*"new"
+[ 2025-07-31 00:09:38,780 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.088208, rho=0.316228
+[ 2025-07-31 00:09:38,780 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 9, at document #1780/1780
+[ 2025-07-31 00:09:39,427 ] 1197 gensim.models.ldamodel - INFO - topic #0 (0.200): 0.013*"game" + 0.005*"player" + 0.005*"england" + 0.005*"first" + 0.005*"year" + 0.005*"win" + 0.004*"time" + 0.004*"one" + 0.004*"play" + 0.004*"world"
+[ 2025-07-31 00:09:39,484 ] 1197 gensim.models.ldamodel - INFO - topic #1 (0.200): 0.010*"would" + 0.007*"government" + 0.006*"people" + 0.005*"labour" + 0.005*"party" + 0.005*"election" + 0.005*"new" + 0.005*"could" + 0.004*"minister" + 0.004*"say"
+[ 2025-07-31 00:09:39,484 ] 1197 gensim.models.ldamodel - INFO - topic #2 (0.200): 0.010*"film" + 0.009*"best" + 0.009*"year" + 0.008*"award" + 0.005*"one" + 0.005*"also" + 0.004*"show" + 0.004*"number" + 0.004*"last" + 0.004*"star"
+[ 2025-07-31 00:09:39,484 ] 1197 gensim.models.ldamodel - INFO - topic #3 (0.200): 0.009*"people" + 0.006*"mobile" + 0.006*"technology" + 0.006*"phone" + 0.005*"year" + 0.005*"music" + 0.005*"also" + 0.005*"new" + 0.004*"digital" + 0.004*"service"
+[ 2025-07-31 00:09:39,484 ] 1197 gensim.models.ldamodel - INFO - topic #4 (0.200): 0.009*"year" + 0.006*"company" + 0.005*"market" + 0.005*"bank" + 0.005*"firm" + 0.005*"growth" + 0.005*"sale" + 0.005*"price" + 0.005*"new" + 0.004*"also"
+[ 2025-07-31 00:09:39,484 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.073942, rho=0.301511
+[ 2025-07-31 00:09:39,484 ] 448 gensim.utils - INFO - LdaModel lifecycle event {'msg': 'trained LdaModel<num_terms=24432, num_topics=5, decay=0.5, chunksize=2000> in 7.88s', 'datetime': '2025-07-31T00:09:39.484847', 'gensim': '4.3.2', 'python': '3.10.0 | packaged by conda-forge | (default, Nov 10 2021, 13:20:59) [MSC v.1916 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'created'}
+[ 2025-07-31 00:09:39,484 ] 155 gensim.topic_coherence.probability_estimation - INFO - using ParallelWordOccurrenceAccumulator<processes=7, batch_size=64> to estimate probabilities from sliding windows
+[ 2025-07-31 00:09:50,358 ] 497 gensim.topic_coherence.text_analysis - INFO - 1 batches submitted to accumulate stats from 64 documents (5779 virtual)
+[ 2025-07-31 00:09:50,363 ] 497 gensim.topic_coherence.text_analysis - INFO - 2 batches submitted to accumulate stats from 128 documents (10446 virtual)
+[ 2025-07-31 00:09:50,366 ] 497 gensim.topic_coherence.text_analysis - INFO - 3 batches submitted to accumulate stats from 192 documents (15615 virtual)
+[ 2025-07-31 00:09:50,369 ] 497 gensim.topic_coherence.text_analysis - INFO - 4 batches submitted to accumulate stats from 256 documents (20526 virtual)
+[ 2025-07-31 00:09:50,374 ] 497 gensim.topic_coherence.text_analysis - INFO - 5 batches submitted to accumulate stats from 320 documents (26949 virtual)
+[ 2025-07-31 00:09:50,374 ] 497 gensim.topic_coherence.text_analysis - INFO - 6 batches submitted to accumulate stats from 384 documents (32714 virtual)
+[ 2025-07-31 00:09:50,390 ] 497 gensim.topic_coherence.text_analysis - INFO - 7 batches submitted to accumulate stats from 448 documents (38968 virtual)
+[ 2025-07-31 00:09:50,395 ] 497 gensim.topic_coherence.text_analysis - INFO - 8 batches submitted to accumulate stats from 512 documents (45456 virtual)
+[ 2025-07-31 00:09:50,401 ] 497 gensim.topic_coherence.text_analysis - INFO - 9 batches submitted to accumulate stats from 576 documents (51813 virtual)
+[ 2025-07-31 00:09:50,404 ] 497 gensim.topic_coherence.text_analysis - INFO - 10 batches submitted to accumulate stats from 640 documents (55867 virtual)
+[ 2025-07-31 00:09:50,411 ] 497 gensim.topic_coherence.text_analysis - INFO - 11 batches submitted to accumulate stats from 704 documents (62025 virtual)
+[ 2025-07-31 00:09:50,420 ] 497 gensim.topic_coherence.text_analysis - INFO - 12 batches submitted to accumulate stats from 768 documents (68382 virtual)
+[ 2025-07-31 00:09:50,437 ] 497 gensim.topic_coherence.text_analysis - INFO - 13 batches submitted to accumulate stats from 832 documents (74872 virtual)
+[ 2025-07-31 00:09:50,447 ] 497 gensim.topic_coherence.text_analysis - INFO - 14 batches submitted to accumulate stats from 896 documents (81207 virtual)
+[ 2025-07-31 00:09:50,653 ] 497 gensim.topic_coherence.text_analysis - INFO - 15 batches submitted to accumulate stats from 960 documents (89577 virtual)
+[ 2025-07-31 00:09:50,681 ] 497 gensim.topic_coherence.text_analysis - INFO - 16 batches submitted to accumulate stats from 1024 documents (95732 virtual)
+[ 2025-07-31 00:09:50,724 ] 497 gensim.topic_coherence.text_analysis - INFO - 17 batches submitted to accumulate stats from 1088 documents (101261 virtual)
+[ 2025-07-31 00:09:50,728 ] 497 gensim.topic_coherence.text_analysis - INFO - 18 batches submitted to accumulate stats from 1152 documents (105456 virtual)
+[ 2025-07-31 00:09:50,749 ] 497 gensim.topic_coherence.text_analysis - INFO - 19 batches submitted to accumulate stats from 1216 documents (111790 virtual)
+[ 2025-07-31 00:09:50,826 ] 497 gensim.topic_coherence.text_analysis - INFO - 20 batches submitted to accumulate stats from 1280 documents (120055 virtual)
+[ 2025-07-31 00:09:50,842 ] 497 gensim.topic_coherence.text_analysis - INFO - 21 batches submitted to accumulate stats from 1344 documents (125572 virtual)
+[ 2025-07-31 00:09:50,962 ] 497 gensim.topic_coherence.text_analysis - INFO - 22 batches submitted to accumulate stats from 1408 documents (131012 virtual)
+[ 2025-07-31 00:09:50,968 ] 497 gensim.topic_coherence.text_analysis - INFO - 23 batches submitted to accumulate stats from 1472 documents (137247 virtual)
+[ 2025-07-31 00:09:50,993 ] 497 gensim.topic_coherence.text_analysis - INFO - 24 batches submitted to accumulate stats from 1536 documents (142926 virtual)
+[ 2025-07-31 00:09:51,053 ] 497 gensim.topic_coherence.text_analysis - INFO - 25 batches submitted to accumulate stats from 1600 documents (148978 virtual)
+[ 2025-07-31 00:09:51,087 ] 497 gensim.topic_coherence.text_analysis - INFO - 26 batches submitted to accumulate stats from 1664 documents (157111 virtual)
+[ 2025-07-31 00:09:51,197 ] 497 gensim.topic_coherence.text_analysis - INFO - 27 batches submitted to accumulate stats from 1728 documents (165256 virtual)
+[ 2025-07-31 00:09:51,219 ] 497 gensim.topic_coherence.text_analysis - INFO - 28 batches submitted to accumulate stats from 1792 documents (170452 virtual)
+[ 2025-07-31 00:09:52,052 ] 523 gensim.topic_coherence.text_analysis - INFO - 7 accumulators retrieved from output queue
+[ 2025-07-31 00:09:52,069 ] 545 gensim.topic_coherence.text_analysis - INFO - accumulated word occurrence stats for 174598 virtual documents
+[ 2025-07-31 00:09:52,307 ] 577 gensim.models.ldamodel - INFO - using symmetric alpha at 0.1
+[ 2025-07-31 00:09:52,307 ] 577 gensim.models.ldamodel - INFO - using symmetric eta at 0.1
+[ 2025-07-31 00:09:52,307 ] 482 gensim.models.ldamodel - INFO - using serial LDA version on this node
+[ 2025-07-31 00:09:52,339 ] 948 gensim.models.ldamodel - INFO - running online (multi-pass) LDA training, 10 topics, 10 passes over the supplied corpus of 1780 documents, updating model once every 1780 documents, evaluating perplexity every 0 documents, iterating 50x with a convergence threshold of 0.001000
+[ 2025-07-31 00:09:52,339 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 0, at document #1780/1780
+[ 2025-07-31 00:09:53,810 ] 1197 gensim.models.ldamodel - INFO - topic #1 (0.100): 0.008*"would" + 0.007*"year" + 0.005*"people" + 0.005*"new" + 0.004*"also" + 0.004*"could" + 0.003*"one" + 0.003*"government" + 0.003*"make" + 0.003*"world"
+[ 2025-07-31 00:09:53,818 ] 1197 gensim.models.ldamodel - INFO - topic #7 (0.100): 0.006*"game" + 0.005*"would" + 0.005*"year" + 0.004*"also" + 0.004*"people" + 0.003*"time" + 0.003*"could" + 0.003*"two" + 0.003*"first" + 0.003*"last"
+[ 2025-07-31 00:09:53,818 ] 1197 gensim.models.ldamodel - INFO - topic #5 (0.100): 0.007*"would" + 0.006*"year" + 0.005*"people" + 0.005*"new" + 0.004*"first" + 0.004*"say" + 0.003*"also" + 0.003*"one" + 0.003*"time" + 0.003*"mobile"
+[ 2025-07-31 00:09:53,818 ] 1197 gensim.models.ldamodel - INFO - topic #9 (0.100): 0.006*"year" + 0.006*"also" + 0.004*"one" + 0.004*"game" + 0.004*"would" + 0.004*"new" + 0.004*"first" + 0.003*"last" + 0.003*"set" + 0.003*"could"
+[ 2025-07-31 00:09:53,818 ] 1197 gensim.models.ldamodel - INFO - topic #8 (0.100): 0.006*"new" + 0.005*"would" + 0.005*"year" + 0.005*"also" + 0.005*"one" + 0.004*"people" + 0.004*"could" + 0.003*"game" + 0.003*"last" + 0.003*"first"
+[ 2025-07-31 00:09:53,818 ] 1075 gensim.models.ldamodel - INFO - topic diff=4.130049, rho=1.000000
+[ 2025-07-31 00:09:53,818 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 1, at document #1780/1780
+[ 2025-07-31 00:09:54,994 ] 1197 gensim.models.ldamodel - INFO - topic #8 (0.100): 0.006*"new" + 0.005*"would" + 0.005*"year" + 0.005*"one" + 0.005*"also" + 0.004*"people" + 0.003*"could" + 0.003*"say" + 0.003*"game" + 0.003*"minister"
+[ 2025-07-31 00:09:54,994 ] 1197 gensim.models.ldamodel - INFO - topic #7 (0.100): 0.007*"game" + 0.006*"year" + 0.005*"would" + 0.004*"also" + 0.004*"time" + 0.004*"best" + 0.004*"first" + 0.004*"two" + 0.003*"win" + 0.003*"people"
+[ 2025-07-31 00:09:54,994 ] 1197 gensim.models.ldamodel - INFO - topic #9 (0.100): 0.007*"year" + 0.006*"also" + 0.006*"game" + 0.005*"first" + 0.004*"one" + 0.004*"last" + 0.004*"set" + 0.003*"new" + 0.003*"would" + 0.003*"time"
+[ 2025-07-31 00:09:54,994 ] 1197 gensim.models.ldamodel - INFO - topic #6 (0.100): 0.007*"year" + 0.006*"people" + 0.005*"film" + 0.005*"one" + 0.005*"new" + 0.004*"would" + 0.004*"also" + 0.004*"could" + 0.004*"government" + 0.003*"last"
+[ 2025-07-31 00:09:54,999 ] 1197 gensim.models.ldamodel - INFO - topic #4 (0.100): 0.006*"year" + 0.006*"would" + 0.005*"also" + 0.005*"sale" + 0.005*"company" + 0.003*"last" + 0.003*"time" + 0.003*"firm" + 0.003*"world" + 0.003*"new"
+[ 2025-07-31 00:09:54,999 ] 1075 gensim.models.ldamodel - INFO - topic diff=1.154084, rho=0.577350
+[ 2025-07-31 00:09:54,999 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 2, at document #1780/1780
+[ 2025-07-31 00:09:55,949 ] 1197 gensim.models.ldamodel - INFO - topic #7 (0.100): 0.007*"game" + 0.006*"year" + 0.005*"best" + 0.005*"would" + 0.004*"time" + 0.004*"first" + 0.004*"also" + 0.004*"film" + 0.004*"win" + 0.004*"two"
+[ 2025-07-31 00:09:55,949 ] 1197 gensim.models.ldamodel - INFO - topic #2 (0.100): 0.006*"year" + 0.005*"one" + 0.004*"also" + 0.004*"time" + 0.004*"award" + 0.004*"best" + 0.003*"would" + 0.003*"last" + 0.003*"world" + 0.003*"number"
+[ 2025-07-31 00:09:55,955 ] 1197 gensim.models.ldamodel - INFO - topic #6 (0.100): 0.007*"year" + 0.006*"people" + 0.006*"film" + 0.005*"new" + 0.005*"one" + 0.004*"would" + 0.004*"also" + 0.004*"could" + 0.003*"government" + 0.003*"last"
+[ 2025-07-31 00:09:55,956 ] 1197 gensim.models.ldamodel - INFO - topic #3 (0.100): 0.007*"year" + 0.005*"also" + 0.004*"last" + 0.004*"sale" + 0.003*"would" + 0.003*"market" + 0.003*"film" + 0.003*"yukos" + 0.003*"two" + 0.003*"could"
+[ 2025-07-31 00:09:55,956 ] 1197 gensim.models.ldamodel - INFO - topic #4 (0.100): 0.007*"year" + 0.006*"sale" + 0.006*"would" + 0.005*"company" + 0.005*"also" + 0.004*"profit" + 0.004*"last" + 0.004*"firm" + 0.003*"bank" + 0.003*"share"
+[ 2025-07-31 00:09:55,956 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.828628, rho=0.500000
+[ 2025-07-31 00:09:55,958 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 3, at document #1780/1780
+[ 2025-07-31 00:09:56,854 ] 1197 gensim.models.ldamodel - INFO - topic #9 (0.100): 0.008*"game" + 0.007*"year" + 0.006*"first" + 0.005*"also" + 0.005*"last" + 0.005*"open" + 0.005*"set" + 0.004*"one" + 0.004*"title" + 0.004*"win"
+[ 2025-07-31 00:09:56,854 ] 1197 gensim.models.ldamodel - INFO - topic #7 (0.100): 0.008*"game" + 0.006*"year" + 0.006*"best" + 0.005*"film" + 0.004*"would" + 0.004*"time" + 0.004*"first" + 0.004*"win" + 0.004*"also" + 0.004*"two"
+[ 2025-07-31 00:09:56,854 ] 1197 gensim.models.ldamodel - INFO - topic #0 (0.100): 0.013*"game" + 0.004*"england" + 0.004*"player" + 0.004*"one" + 0.004*"year" + 0.004*"time" + 0.004*"best" + 0.003*"first" + 0.003*"win" + 0.003*"play"
+[ 2025-07-31 00:09:56,854 ] 1197 gensim.models.ldamodel - INFO - topic #8 (0.100): 0.005*"would" + 0.005*"new" + 0.005*"one" + 0.005*"year" + 0.004*"also" + 0.004*"people" + 0.003*"could" + 0.003*"blair" + 0.003*"minister" + 0.003*"say"
+[ 2025-07-31 00:09:56,854 ] 1197 gensim.models.ldamodel - INFO - topic #6 (0.100): 0.007*"year" + 0.007*"film" + 0.006*"people" + 0.005*"new" + 0.005*"one" + 0.004*"also" + 0.004*"would" + 0.004*"could" + 0.003*"government" + 0.003*"last"
+[ 2025-07-31 00:09:56,854 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.595545, rho=0.447214
+[ 2025-07-31 00:09:56,860 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 4, at document #1780/1780
+[ 2025-07-31 00:09:57,703 ] 1197 gensim.models.ldamodel - INFO - topic #4 (0.100): 0.009*"year" + 0.007*"sale" + 0.007*"company" + 0.005*"bank" + 0.005*"share" + 0.005*"also" + 0.005*"market" + 0.005*"would" + 0.005*"firm" + 0.005*"growth"
+[ 2025-07-31 00:09:57,703 ] 1197 gensim.models.ldamodel - INFO - topic #9 (0.100): 0.009*"game" + 0.007*"year" + 0.006*"first" + 0.005*"also" + 0.005*"last" + 0.005*"open" + 0.005*"set" + 0.004*"title" + 0.004*"one" + 0.004*"win"
+[ 2025-07-31 00:09:57,703 ] 1197 gensim.models.ldamodel - INFO - topic #7 (0.100): 0.008*"game" + 0.007*"best" + 0.007*"year" + 0.007*"film" + 0.005*"award" + 0.004*"time" + 0.004*"would" + 0.004*"first" + 0.004*"win" + 0.004*"also"
+[ 2025-07-31 00:09:57,703 ] 1197 gensim.models.ldamodel - INFO - topic #1 (0.100): 0.012*"would" + 0.007*"labour" + 0.007*"government" + 0.006*"people" + 0.006*"party" + 0.006*"election" + 0.005*"year" + 0.005*"new" + 0.005*"tory" + 0.005*"tax"
+[ 2025-07-31 00:09:57,703 ] 1197 gensim.models.ldamodel - INFO - topic #5 (0.100): 0.009*"people" + 0.008*"mobile" + 0.007*"phone" + 0.005*"technology" + 0.005*"would" + 0.005*"new" + 0.005*"year" + 0.005*"service" + 0.004*"also" + 0.004*"music"
+[ 2025-07-31 00:09:57,703 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.434925, rho=0.408248
+[ 2025-07-31 00:09:57,703 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 5, at document #1780/1780
+[ 2025-07-31 00:09:58,580 ] 1197 gensim.models.ldamodel - INFO - topic #1 (0.100): 0.012*"would" + 0.007*"labour" + 0.007*"government" + 0.006*"party" + 0.006*"election" + 0.006*"people" + 0.005*"tory" + 0.005*"year" + 0.005*"new" + 0.005*"tax"
+[ 2025-07-31 00:09:58,580 ] 1197 gensim.models.ldamodel - INFO - topic #0 (0.100): 0.014*"game" + 0.006*"england" + 0.006*"player" + 0.004*"win" + 0.004*"one" + 0.004*"time" + 0.004*"ireland" + 0.004*"play" + 0.004*"first" + 0.004*"side"
+[ 2025-07-31 00:09:58,580 ] 1197 gensim.models.ldamodel - INFO - topic #6 (0.100): 0.008*"film" + 0.007*"year" + 0.007*"people" + 0.005*"new" + 0.005*"one" + 0.004*"also" + 0.004*"would" + 0.004*"could" + 0.003*"government" + 0.003*"china"
+[ 2025-07-31 00:09:58,580 ] 1197 gensim.models.ldamodel - INFO - topic #4 (0.100): 0.009*"year" + 0.007*"sale" + 0.007*"company" + 0.006*"market" + 0.006*"bank" + 0.006*"share" + 0.006*"growth" + 0.006*"firm" + 0.005*"price" + 0.005*"also"
+[ 2025-07-31 00:09:58,580 ] 1197 gensim.models.ldamodel - INFO - topic #8 (0.100): 0.005*"new" + 0.005*"one" + 0.005*"would" + 0.005*"year" + 0.004*"also" + 0.004*"people" + 0.003*"could" + 0.003*"music" + 0.003*"blair" + 0.003*"song"
+[ 2025-07-31 00:09:58,584 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.322810, rho=0.377964
+[ 2025-07-31 00:09:58,584 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 6, at document #1780/1780
+[ 2025-07-31 00:09:59,441 ] 1197 gensim.models.ldamodel - INFO - topic #5 (0.100): 0.009*"people" + 0.009*"mobile" + 0.008*"phone" + 0.006*"technology" + 0.005*"service" + 0.005*"new" + 0.005*"music" + 0.005*"would" + 0.005*"year" + 0.005*"also"
+[ 2025-07-31 00:09:59,441 ] 1197 gensim.models.ldamodel - INFO - topic #8 (0.100): 0.005*"one" + 0.005*"new" + 0.005*"would" + 0.005*"year" + 0.004*"also" + 0.004*"people" + 0.003*"music" + 0.003*"could" + 0.003*"song" + 0.003*"say"
+[ 2025-07-31 00:09:59,442 ] 1197 gensim.models.ldamodel - INFO - topic #2 (0.100): 0.007*"year" + 0.005*"award" + 0.005*"one" + 0.004*"best" + 0.004*"also" + 0.004*"world" + 0.004*"time" + 0.004*"number" + 0.004*"last" + 0.003*"band"
+[ 2025-07-31 00:09:59,442 ] 1197 gensim.models.ldamodel - INFO - topic #4 (0.100): 0.010*"year" + 0.007*"company" + 0.007*"sale" + 0.007*"market" + 0.006*"bank" + 0.006*"growth" + 0.006*"share" + 0.006*"firm" + 0.006*"price" + 0.005*"also"
+[ 2025-07-31 00:09:59,442 ] 1197 gensim.models.ldamodel - INFO - topic #9 (0.100): 0.010*"game" + 0.008*"year" + 0.007*"first" + 0.006*"open" + 0.006*"last" + 0.005*"set" + 0.005*"also" + 0.005*"title" + 0.005*"win" + 0.004*"one"
+[ 2025-07-31 00:09:59,442 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.244240, rho=0.353553
+[ 2025-07-31 00:09:59,442 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 7, at document #1780/1780
+[ 2025-07-31 00:10:00,224 ] 1197 gensim.models.ldamodel - INFO - topic #4 (0.100): 0.011*"year" + 0.008*"company" + 0.007*"sale" + 0.007*"market" + 0.007*"bank" + 0.006*"growth" + 0.006*"share" + 0.006*"firm" + 0.006*"price" + 0.005*"also"
+[ 2025-07-31 00:10:00,224 ] 1197 gensim.models.ldamodel - INFO - topic #7 (0.100): 0.010*"film" + 0.010*"best" + 0.008*"award" + 0.007*"year" + 0.007*"game" + 0.004*"actor" + 0.004*"time" + 0.004*"also" + 0.004*"first" + 0.004*"two"
+[ 2025-07-31 00:10:00,224 ] 1197 gensim.models.ldamodel - INFO - topic #6 (0.100): 0.008*"film" + 0.007*"year" + 0.007*"people" + 0.006*"new" + 0.005*"one" + 0.004*"also" + 0.004*"would" + 0.004*"could" + 0.003*"world" + 0.003*"say"
+[ 2025-07-31 00:10:00,224 ] 1197 gensim.models.ldamodel - INFO - topic #9 (0.100): 0.010*"game" + 0.008*"year" + 0.007*"first" + 0.007*"open" + 0.006*"last" + 0.006*"set" + 0.005*"title" + 0.005*"also" + 0.005*"win" + 0.004*"one"
+[ 2025-07-31 00:10:00,224 ] 1197 gensim.models.ldamodel - INFO - topic #3 (0.100): 0.007*"year" + 0.006*"yukos" + 0.005*"sale" + 0.005*"also" + 0.004*"oil" + 0.004*"last" + 0.003*"company" + 0.003*"film" + 0.003*"two" + 0.003*"russian"
+[ 2025-07-31 00:10:00,224 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.188644, rho=0.333333
+[ 2025-07-31 00:10:00,224 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 8, at document #1780/1780
+[ 2025-07-31 00:10:00,978 ] 1197 gensim.models.ldamodel - INFO - topic #2 (0.100): 0.007*"year" + 0.005*"award" + 0.005*"one" + 0.005*"best" + 0.004*"also" + 0.004*"world" + 0.004*"number" + 0.004*"band" + 0.004*"show" + 0.004*"time"
+[ 2025-07-31 00:10:00,980 ] 1197 gensim.models.ldamodel - INFO - topic #3 (0.100): 0.007*"year" + 0.006*"yukos" + 0.005*"sale" + 0.004*"also" + 0.004*"oil" + 0.004*"company" + 0.004*"last" + 0.003*"two" + 0.003*"film" + 0.003*"russian"
+[ 2025-07-31 00:10:00,980 ] 1197 gensim.models.ldamodel - INFO - topic #9 (0.100): 0.011*"game" + 0.008*"year" + 0.007*"first" + 0.007*"open" + 0.006*"last" + 0.006*"set" + 0.005*"title" + 0.005*"win" + 0.005*"also" + 0.004*"one"
+[ 2025-07-31 00:10:00,980 ] 1197 gensim.models.ldamodel - INFO - topic #4 (0.100): 0.011*"year" + 0.008*"company" + 0.007*"market" + 0.007*"sale" + 0.007*"bank" + 0.007*"growth" + 0.006*"firm" + 0.006*"share" + 0.006*"price" + 0.005*"economy"
+[ 2025-07-31 00:10:00,980 ] 1197 gensim.models.ldamodel - INFO - topic #1 (0.100): 0.012*"would" + 0.008*"government" + 0.008*"labour" + 0.007*"election" + 0.007*"party" + 0.006*"people" + 0.006*"minister" + 0.005*"tory" + 0.005*"blair" + 0.005*"new"
+[ 2025-07-31 00:10:00,980 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.148905, rho=0.316228
+[ 2025-07-31 00:10:00,980 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 9, at document #1780/1780
+[ 2025-07-31 00:10:01,721 ] 1197 gensim.models.ldamodel - INFO - topic #6 (0.100): 0.009*"film" + 0.007*"people" + 0.007*"year" + 0.006*"new" + 0.005*"one" + 0.004*"also" + 0.004*"would" + 0.004*"could" + 0.003*"like" + 0.003*"world"
+[ 2025-07-31 00:10:01,725 ] 1197 gensim.models.ldamodel - INFO - topic #2 (0.100): 0.007*"year" + 0.005*"award" + 0.005*"one" + 0.005*"best" + 0.004*"also" + 0.004*"world" + 0.004*"number" + 0.004*"band" + 0.004*"show" + 0.004*"album"
+[ 2025-07-31 00:10:01,725 ] 1197 gensim.models.ldamodel - INFO - topic #8 (0.100): 0.005*"one" + 0.005*"new" + 0.005*"would" + 0.005*"year" + 0.004*"also" + 0.004*"music" + 0.004*"people" + 0.004*"song" + 0.003*"search" + 0.003*"could"
+[ 2025-07-31 00:10:01,725 ] 1197 gensim.models.ldamodel - INFO - topic #4 (0.100): 0.011*"year" + 0.008*"company" + 0.008*"market" + 0.007*"sale" + 0.007*"bank" + 0.007*"growth" + 0.007*"firm" + 0.006*"share" + 0.006*"price" + 0.005*"economy"
+[ 2025-07-31 00:10:01,725 ] 1197 gensim.models.ldamodel - INFO - topic #1 (0.100): 0.012*"would" + 0.009*"government" + 0.008*"labour" + 0.007*"election" + 0.007*"party" + 0.006*"people" + 0.006*"minister" + 0.005*"tory" + 0.005*"blair" + 0.005*"say"
+[ 2025-07-31 00:10:01,725 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.120126, rho=0.301511
+[ 2025-07-31 00:10:01,725 ] 448 gensim.utils - INFO - LdaModel lifecycle event {'msg': 'trained LdaModel<num_terms=24432, num_topics=10, decay=0.5, chunksize=2000> in 9.40s', 'datetime': '2025-07-31T00:10:01.725771', 'gensim': '4.3.2', 'python': '3.10.0 | packaged by conda-forge | (default, Nov 10 2021, 13:20:59) [MSC v.1916 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'created'}
+[ 2025-07-31 00:10:01,732 ] 155 gensim.topic_coherence.probability_estimation - INFO - using ParallelWordOccurrenceAccumulator<processes=7, batch_size=64> to estimate probabilities from sliding windows
+[ 2025-07-31 00:10:15,246 ] 497 gensim.topic_coherence.text_analysis - INFO - 1 batches submitted to accumulate stats from 64 documents (5779 virtual)
+[ 2025-07-31 00:10:15,246 ] 497 gensim.topic_coherence.text_analysis - INFO - 2 batches submitted to accumulate stats from 128 documents (10446 virtual)
+[ 2025-07-31 00:10:15,246 ] 497 gensim.topic_coherence.text_analysis - INFO - 3 batches submitted to accumulate stats from 192 documents (15615 virtual)
+[ 2025-07-31 00:10:15,254 ] 497 gensim.topic_coherence.text_analysis - INFO - 4 batches submitted to accumulate stats from 256 documents (20526 virtual)
+[ 2025-07-31 00:10:15,259 ] 497 gensim.topic_coherence.text_analysis - INFO - 5 batches submitted to accumulate stats from 320 documents (26949 virtual)
+[ 2025-07-31 00:10:15,263 ] 497 gensim.topic_coherence.text_analysis - INFO - 6 batches submitted to accumulate stats from 384 documents (32714 virtual)
+[ 2025-07-31 00:10:15,263 ] 497 gensim.topic_coherence.text_analysis - INFO - 7 batches submitted to accumulate stats from 448 documents (38968 virtual)
+[ 2025-07-31 00:10:15,263 ] 497 gensim.topic_coherence.text_analysis - INFO - 8 batches submitted to accumulate stats from 512 documents (45456 virtual)
+[ 2025-07-31 00:10:15,275 ] 497 gensim.topic_coherence.text_analysis - INFO - 9 batches submitted to accumulate stats from 576 documents (51813 virtual)
+[ 2025-07-31 00:10:15,280 ] 497 gensim.topic_coherence.text_analysis - INFO - 10 batches submitted to accumulate stats from 640 documents (55867 virtual)
+[ 2025-07-31 00:10:15,287 ] 497 gensim.topic_coherence.text_analysis - INFO - 11 batches submitted to accumulate stats from 704 documents (62025 virtual)
+[ 2025-07-31 00:10:15,292 ] 497 gensim.topic_coherence.text_analysis - INFO - 12 batches submitted to accumulate stats from 768 documents (68382 virtual)
+[ 2025-07-31 00:10:15,298 ] 497 gensim.topic_coherence.text_analysis - INFO - 13 batches submitted to accumulate stats from 832 documents (74872 virtual)
+[ 2025-07-31 00:10:15,307 ] 497 gensim.topic_coherence.text_analysis - INFO - 14 batches submitted to accumulate stats from 896 documents (81207 virtual)
+[ 2025-07-31 00:10:15,589 ] 497 gensim.topic_coherence.text_analysis - INFO - 15 batches submitted to accumulate stats from 960 documents (89577 virtual)
+[ 2025-07-31 00:10:15,595 ] 497 gensim.topic_coherence.text_analysis - INFO - 16 batches submitted to accumulate stats from 1024 documents (95732 virtual)
+[ 2025-07-31 00:10:15,609 ] 497 gensim.topic_coherence.text_analysis - INFO - 17 batches submitted to accumulate stats from 1088 documents (101261 virtual)
+[ 2025-07-31 00:10:15,620 ] 497 gensim.topic_coherence.text_analysis - INFO - 18 batches submitted to accumulate stats from 1152 documents (105456 virtual)
+[ 2025-07-31 00:10:15,695 ] 497 gensim.topic_coherence.text_analysis - INFO - 19 batches submitted to accumulate stats from 1216 documents (111790 virtual)
+[ 2025-07-31 00:10:15,709 ] 497 gensim.topic_coherence.text_analysis - INFO - 20 batches submitted to accumulate stats from 1280 documents (120055 virtual)
+[ 2025-07-31 00:10:15,720 ] 497 gensim.topic_coherence.text_analysis - INFO - 21 batches submitted to accumulate stats from 1344 documents (125572 virtual)
+[ 2025-07-31 00:10:15,943 ] 497 gensim.topic_coherence.text_analysis - INFO - 22 batches submitted to accumulate stats from 1408 documents (131012 virtual)
+[ 2025-07-31 00:10:15,991 ] 497 gensim.topic_coherence.text_analysis - INFO - 23 batches submitted to accumulate stats from 1472 documents (137247 virtual)
+[ 2025-07-31 00:10:15,997 ] 497 gensim.topic_coherence.text_analysis - INFO - 24 batches submitted to accumulate stats from 1536 documents (142926 virtual)
+[ 2025-07-31 00:10:16,028 ] 497 gensim.topic_coherence.text_analysis - INFO - 25 batches submitted to accumulate stats from 1600 documents (148978 virtual)
+[ 2025-07-31 00:10:16,124 ] 497 gensim.topic_coherence.text_analysis - INFO - 26 batches submitted to accumulate stats from 1664 documents (157111 virtual)
+[ 2025-07-31 00:10:16,146 ] 497 gensim.topic_coherence.text_analysis - INFO - 27 batches submitted to accumulate stats from 1728 documents (165256 virtual)
+[ 2025-07-31 00:10:16,158 ] 497 gensim.topic_coherence.text_analysis - INFO - 28 batches submitted to accumulate stats from 1792 documents (170452 virtual)
+[ 2025-07-31 00:10:17,237 ] 523 gensim.topic_coherence.text_analysis - INFO - 7 accumulators retrieved from output queue
+[ 2025-07-31 00:10:17,258 ] 545 gensim.topic_coherence.text_analysis - INFO - accumulated word occurrence stats for 174598 virtual documents
+[ 2025-07-31 00:10:17,644 ] 577 gensim.models.ldamodel - INFO - using symmetric alpha at 0.06666666666666667
+[ 2025-07-31 00:10:17,644 ] 577 gensim.models.ldamodel - INFO - using symmetric eta at 0.06666666666666667
+[ 2025-07-31 00:10:17,652 ] 482 gensim.models.ldamodel - INFO - using serial LDA version on this node
+[ 2025-07-31 00:10:17,721 ] 948 gensim.models.ldamodel - INFO - running online (multi-pass) LDA training, 15 topics, 10 passes over the supplied corpus of 1780 documents, updating model once every 1780 documents, evaluating perplexity every 0 documents, iterating 50x with a convergence threshold of 0.001000
+[ 2025-07-31 00:10:17,721 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 0, at document #1780/1780
+[ 2025-07-31 00:10:19,342 ] 1197 gensim.models.ldamodel - INFO - topic #3 (0.067): 0.007*"year" + 0.005*"also" + 0.005*"would" + 0.005*"people" + 0.004*"could" + 0.004*"last" + 0.003*"new" + 0.003*"film" + 0.003*"best" + 0.003*"time"
+[ 2025-07-31 00:10:19,342 ] 1197 gensim.models.ldamodel - INFO - topic #5 (0.067): 0.007*"would" + 0.006*"year" + 0.005*"people" + 0.005*"new" + 0.004*"first" + 0.004*"say" + 0.003*"also" + 0.003*"mobile" + 0.003*"phone" + 0.003*"one"
+[ 2025-07-31 00:10:19,342 ] 1197 gensim.models.ldamodel - INFO - topic #7 (0.067): 0.006*"game" + 0.005*"would" + 0.005*"year" + 0.004*"also" + 0.004*"people" + 0.003*"time" + 0.003*"could" + 0.003*"two" + 0.003*"new" + 0.003*"last"
+[ 2025-07-31 00:10:19,342 ] 1197 gensim.models.ldamodel - INFO - topic #2 (0.067): 0.006*"one" + 0.005*"year" + 0.004*"also" + 0.004*"would" + 0.004*"time" + 0.004*"people" + 0.003*"number" + 0.003*"two" + 0.003*"new" + 0.003*"last"
+[ 2025-07-31 00:10:19,342 ] 1197 gensim.models.ldamodel - INFO - topic #8 (0.067): 0.006*"new" + 0.005*"would" + 0.005*"also" + 0.005*"year" + 0.005*"one" + 0.004*"people" + 0.004*"could" + 0.003*"number" + 0.003*"game" + 0.003*"first"
+[ 2025-07-31 00:10:19,342 ] 1075 gensim.models.ldamodel - INFO - topic diff=6.472122, rho=1.000000
+[ 2025-07-31 00:10:19,342 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 1, at document #1780/1780
+[ 2025-07-31 00:10:20,513 ] 1197 gensim.models.ldamodel - INFO - topic #4 (0.067): 0.006*"year" + 0.006*"would" + 0.005*"also" + 0.005*"sale" + 0.005*"company" + 0.003*"firm" + 0.003*"award" + 0.003*"service" + 0.003*"last" + 0.003*"time"
+[ 2025-07-31 00:10:20,513 ] 1197 gensim.models.ldamodel - INFO - topic #11 (0.067): 0.007*"would" + 0.007*"year" + 0.005*"election" + 0.005*"could" + 0.004*"say" + 0.004*"labour" + 0.004*"government" + 0.004*"also" + 0.003*"last" + 0.003*"game"
+[ 2025-07-31 00:10:20,513 ] 1197 gensim.models.ldamodel - INFO - topic #9 (0.067): 0.007*"game" + 0.007*"year" + 0.006*"also" + 0.005*"first" + 0.004*"one" + 0.004*"set" + 0.004*"new" + 0.004*"last" + 0.004*"would" + 0.003*"next"
+[ 2025-07-31 00:10:20,513 ] 1197 gensim.models.ldamodel - INFO - topic #12 (0.067): 0.009*"year" + 0.005*"would" + 0.004*"economy" + 0.004*"growth" + 0.004*"also" + 0.004*"price" + 0.004*"month" + 0.003*"new" + 0.003*"time" + 0.003*"world"
+[ 2025-07-31 00:10:20,513 ] 1197 gensim.models.ldamodel - INFO - topic #5 (0.067): 0.007*"people" + 0.007*"would" + 0.006*"mobile" + 0.006*"year" + 0.005*"phone" + 0.005*"new" + 0.004*"say" + 0.004*"also" + 0.004*"technology" + 0.004*"one"
+[ 2025-07-31 00:10:20,513 ] 1075 gensim.models.ldamodel - INFO - topic diff=1.547538, rho=0.577350
+[ 2025-07-31 00:10:20,513 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 2, at document #1780/1780
+[ 2025-07-31 00:10:21,635 ] 1197 gensim.models.ldamodel - INFO - topic #3 (0.067): 0.007*"year" + 0.005*"also" + 0.005*"yukos" + 0.004*"last" + 0.004*"would" + 0.004*"company" + 0.003*"film" + 0.003*"sale" + 0.003*"two" + 0.003*"people"
+[ 2025-07-31 00:10:21,635 ] 1197 gensim.models.ldamodel - INFO - topic #5 (0.067): 0.008*"people" + 0.008*"mobile" + 0.007*"phone" + 0.006*"would" + 0.006*"year" + 0.005*"new" + 0.005*"technology" + 0.004*"say" + 0.004*"also" + 0.004*"service"
+[ 2025-07-31 00:10:21,635 ] 1197 gensim.models.ldamodel - INFO - topic #8 (0.067): 0.006*"new" + 0.006*"would" + 0.005*"also" + 0.005*"one" + 0.004*"people" + 0.004*"year" + 0.004*"could" + 0.003*"minister" + 0.003*"say" + 0.003*"government"
+[ 2025-07-31 00:10:21,635 ] 1197 gensim.models.ldamodel - INFO - topic #12 (0.067): 0.010*"year" + 0.006*"growth" + 0.006*"economy" + 0.005*"price" + 0.005*"rate" + 0.004*"month" + 0.004*"also" + 0.004*"would" + 0.004*"sale" + 0.003*"rise"
+[ 2025-07-31 00:10:21,635 ] 1197 gensim.models.ldamodel - INFO - topic #11 (0.067): 0.007*"would" + 0.006*"year" + 0.006*"election" + 0.005*"labour" + 0.004*"say" + 0.004*"could" + 0.004*"government" + 0.004*"minister" + 0.004*"brown" + 0.004*"also"
+[ 2025-07-31 00:10:21,635 ] 1075 gensim.models.ldamodel - INFO - topic diff=1.161719, rho=0.500000
+[ 2025-07-31 00:10:21,635 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 3, at document #1780/1780
+[ 2025-07-31 00:10:22,658 ] 1197 gensim.models.ldamodel - INFO - topic #4 (0.067): 0.007*"company" + 0.007*"year" + 0.006*"sale" + 0.006*"would" + 0.006*"firm" + 0.006*"also" + 0.005*"profit" + 0.004*"share" + 0.004*"offer" + 0.004*"executive"
+[ 2025-07-31 00:10:22,660 ] 1197 gensim.models.ldamodel - INFO - topic #10 (0.067): 0.007*"people" + 0.005*"year" + 0.004*"also" + 0.004*"kilroysilk" + 0.004*"club" + 0.004*"one" + 0.004*"ukip" + 0.004*"new" + 0.004*"microsoft" + 0.003*"security"
+[ 2025-07-31 00:10:22,660 ] 1197 gensim.models.ldamodel - INFO - topic #6 (0.067): 0.007*"film" + 0.006*"year" + 0.006*"people" + 0.005*"new" + 0.005*"one" + 0.004*"also" + 0.004*"would" + 0.004*"could" + 0.004*"china" + 0.004*"country"
+[ 2025-07-31 00:10:22,660 ] 1197 gensim.models.ldamodel - INFO - topic #1 (0.067): 0.011*"would" + 0.007*"people" + 0.006*"party" + 0.006*"government" + 0.006*"labour" + 0.006*"new" + 0.006*"year" + 0.005*"tax" + 0.005*"tory" + 0.005*"could"
+[ 2025-07-31 00:10:22,660 ] 1197 gensim.models.ldamodel - INFO - topic #3 (0.067): 0.006*"year" + 0.006*"yukos" + 0.005*"also" + 0.004*"last" + 0.004*"company" + 0.004*"film" + 0.003*"would" + 0.003*"oil" + 0.003*"sale" + 0.003*"two"
+[ 2025-07-31 00:10:22,662 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.858443, rho=0.447214
+[ 2025-07-31 00:10:22,664 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 4, at document #1780/1780
+[ 2025-07-31 00:10:23,632 ] 1197 gensim.models.ldamodel - INFO - topic #14 (0.067): 0.010*"england" + 0.007*"wale" + 0.006*"best" + 0.005*"win" + 0.005*"france" + 0.005*"year" + 0.005*"ireland" + 0.005*"six" + 0.005*"game" + 0.005*"nation"
+[ 2025-07-31 00:10:23,632 ] 1197 gensim.models.ldamodel - INFO - topic #4 (0.067): 0.009*"company" + 0.008*"year" + 0.007*"firm" + 0.006*"sale" + 0.006*"would" + 0.006*"also" + 0.005*"share" + 0.005*"profit" + 0.004*"market" + 0.004*"executive"
+[ 2025-07-31 00:10:23,632 ] 1197 gensim.models.ldamodel - INFO - topic #12 (0.067): 0.012*"year" + 0.009*"growth" + 0.007*"economy" + 0.007*"price" + 0.007*"rate" + 0.006*"month" + 0.005*"sale" + 0.005*"rise" + 0.005*"figure" + 0.005*"market"
+[ 2025-07-31 00:10:23,632 ] 1197 gensim.models.ldamodel - INFO - topic #9 (0.067): 0.011*"game" + 0.007*"year" + 0.006*"first" + 0.006*"also" + 0.005*"set" + 0.005*"open" + 0.005*"title" + 0.005*"one" + 0.004*"last" + 0.004*"lord"
+[ 2025-07-31 00:10:23,638 ] 1197 gensim.models.ldamodel - INFO - topic #8 (0.067): 0.006*"would" + 0.006*"new" + 0.005*"also" + 0.005*"one" + 0.004*"people" + 0.004*"say" + 0.003*"could" + 0.003*"search" + 0.003*"minister" + 0.003*"year"
+[ 2025-07-31 00:10:23,640 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.636464, rho=0.408248
+[ 2025-07-31 00:10:23,640 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 5, at document #1780/1780
+[ 2025-07-31 00:10:24,594 ] 1197 gensim.models.ldamodel - INFO - topic #8 (0.067): 0.007*"would" + 0.006*"new" + 0.005*"also" + 0.005*"one" + 0.004*"people" + 0.004*"say" + 0.004*"search" + 0.003*"could" + 0.003*"club" + 0.003*"site"
+[ 2025-07-31 00:10:24,594 ] 1197 gensim.models.ldamodel - INFO - topic #9 (0.067): 0.012*"game" + 0.007*"year" + 0.006*"first" + 0.006*"also" + 0.006*"open" + 0.005*"set" + 0.005*"title" + 0.005*"one" + 0.004*"last" + 0.004*"console"
+[ 2025-07-31 00:10:24,594 ] 1197 gensim.models.ldamodel - INFO - topic #2 (0.067): 0.007*"year" + 0.006*"number" + 0.006*"one" + 0.004*"top" + 0.004*"also" + 0.004*"band" + 0.004*"best" + 0.004*"last" + 0.004*"time" + 0.004*"award"
+[ 2025-07-31 00:10:24,594 ] 1197 gensim.models.ldamodel - INFO - topic #11 (0.067): 0.008*"would" + 0.008*"election" + 0.007*"labour" + 0.006*"minister" + 0.006*"brown" + 0.006*"government" + 0.006*"blair" + 0.005*"year" + 0.005*"lord" + 0.005*"say"
+[ 2025-07-31 00:10:24,594 ] 1197 gensim.models.ldamodel - INFO - topic #13 (0.067): 0.011*"best" + 0.009*"film" + 0.009*"award" + 0.009*"year" + 0.008*"music" + 0.006*"show" + 0.006*"song" + 0.005*"also" + 0.005*"one" + 0.004*"new"
+[ 2025-07-31 00:10:24,596 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.475531, rho=0.377964
+[ 2025-07-31 00:10:24,596 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 6, at document #1780/1780
+[ 2025-07-31 00:10:25,512 ] 1197 gensim.models.ldamodel - INFO - topic #11 (0.067): 0.008*"would" + 0.008*"election" + 0.008*"labour" + 0.007*"minister" + 0.007*"blair" + 0.007*"brown" + 0.006*"government" + 0.005*"lord" + 0.005*"chancellor" + 0.005*"year"
+[ 2025-07-31 00:10:25,512 ] 1197 gensim.models.ldamodel - INFO - topic #1 (0.067): 0.012*"would" + 0.008*"government" + 0.007*"party" + 0.007*"labour" + 0.007*"people" + 0.006*"tory" + 0.006*"tax" + 0.005*"new" + 0.005*"election" + 0.005*"plan"
+[ 2025-07-31 00:10:25,512 ] 1197 gensim.models.ldamodel - INFO - topic #12 (0.067): 0.013*"year" + 0.010*"growth" + 0.009*"economy" + 0.008*"price" + 0.008*"rate" + 0.007*"month" + 0.006*"sale" + 0.006*"figure" + 0.006*"rise" + 0.006*"market"
+[ 2025-07-31 00:10:25,512 ] 1197 gensim.models.ldamodel - INFO - topic #7 (0.067): 0.007*"year" + 0.005*"first" + 0.005*"game" + 0.005*"two" + 0.004*"roddick" + 0.004*"match" + 0.004*"last" + 0.004*"one" + 0.004*"time" + 0.004*"also"
+[ 2025-07-31 00:10:25,516 ] 1197 gensim.models.ldamodel - INFO - topic #13 (0.067): 0.012*"best" + 0.011*"film" + 0.011*"award" + 0.009*"year" + 0.008*"music" + 0.006*"show" + 0.006*"song" + 0.005*"also" + 0.005*"one" + 0.005*"star"
+[ 2025-07-31 00:10:25,518 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.360154, rho=0.353553
+[ 2025-07-31 00:10:25,518 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 7, at document #1780/1780
+[ 2025-07-31 00:10:26,401 ] 1197 gensim.models.ldamodel - INFO - topic #8 (0.067): 0.007*"would" + 0.006*"new" + 0.005*"also" + 0.005*"one" + 0.004*"search" + 0.004*"say" + 0.004*"people" + 0.004*"site" + 0.004*"club" + 0.003*"could"
+[ 2025-07-31 00:10:26,403 ] 1197 gensim.models.ldamodel - INFO - topic #14 (0.067): 0.013*"england" + 0.008*"wale" + 0.007*"ireland" + 0.006*"game" + 0.006*"rugby" + 0.006*"win" + 0.006*"six" + 0.006*"france" + 0.006*"side" + 0.005*"nation"
+[ 2025-07-31 00:10:26,403 ] 1197 gensim.models.ldamodel - INFO - topic #3 (0.067): 0.009*"yukos" + 0.005*"oil" + 0.005*"year" + 0.005*"also" + 0.004*"company" + 0.004*"russian" + 0.004*"gazprom" + 0.004*"last" + 0.004*"sale" + 0.004*"court"
+[ 2025-07-31 00:10:26,403 ] 1197 gensim.models.ldamodel - INFO - topic #5 (0.067): 0.011*"people" + 0.010*"mobile" + 0.009*"phone" + 0.008*"technology" + 0.006*"service" + 0.006*"music" + 0.005*"digital" + 0.005*"new" + 0.005*"year" + 0.005*"network"
+[ 2025-07-31 00:10:26,403 ] 1197 gensim.models.ldamodel - INFO - topic #7 (0.067): 0.007*"year" + 0.005*"first" + 0.005*"two" + 0.005*"game" + 0.005*"roddick" + 0.004*"match" + 0.004*"last" + 0.004*"one" + 0.004*"time" + 0.004*"world"
+[ 2025-07-31 00:10:26,403 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.276697, rho=0.333333
+[ 2025-07-31 00:10:26,403 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 8, at document #1780/1780
+[ 2025-07-31 00:10:27,308 ] 1197 gensim.models.ldamodel - INFO - topic #11 (0.067): 0.009*"election" + 0.009*"would" + 0.008*"blair" + 0.008*"labour" + 0.008*"minister" + 0.007*"brown" + 0.007*"government" + 0.006*"lord" + 0.005*"chancellor" + 0.005*"prime"
+[ 2025-07-31 00:10:27,308 ] 1197 gensim.models.ldamodel - INFO - topic #4 (0.067): 0.012*"company" + 0.011*"firm" + 0.009*"share" + 0.008*"year" + 0.007*"market" + 0.006*"sale" + 0.006*"would" + 0.006*"profit" + 0.006*"also" + 0.005*"executive"
+[ 2025-07-31 00:10:27,308 ] 1197 gensim.models.ldamodel - INFO - topic #12 (0.067): 0.014*"year" + 0.011*"growth" + 0.010*"economy" + 0.009*"price" + 0.009*"rate" + 0.007*"month" + 0.007*"sale" + 0.006*"market" + 0.006*"economic" + 0.006*"figure"
+[ 2025-07-31 00:10:27,308 ] 1197 gensim.models.ldamodel - INFO - topic #1 (0.067): 0.012*"would" + 0.009*"government" + 0.008*"party" + 0.007*"labour" + 0.007*"people" + 0.006*"tory" + 0.006*"tax" + 0.006*"plan" + 0.006*"election" + 0.005*"new"
+[ 2025-07-31 00:10:27,308 ] 1197 gensim.models.ldamodel - INFO - topic #6 (0.067): 0.008*"film" + 0.006*"people" + 0.006*"new" + 0.006*"year" + 0.005*"one" + 0.005*"country" + 0.005*"china" + 0.004*"could" + 0.004*"also" + 0.004*"would"
+[ 2025-07-31 00:10:27,312 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.216433, rho=0.316228
+[ 2025-07-31 00:10:27,312 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 9, at document #1780/1780
+[ 2025-07-31 00:10:28,203 ] 1197 gensim.models.ldamodel - INFO - topic #14 (0.067): 0.014*"england" + 0.009*"wale" + 0.007*"ireland" + 0.007*"rugby" + 0.007*"game" + 0.006*"six" + 0.006*"win" + 0.006*"france" + 0.006*"side" + 0.006*"nation"
+[ 2025-07-31 00:10:28,203 ] 1197 gensim.models.ldamodel - INFO - topic #0 (0.067): 0.021*"game" + 0.007*"player" + 0.005*"chelsea" + 0.005*"time" + 0.005*"play" + 0.005*"goal" + 0.005*"good" + 0.005*"would" + 0.004*"one" + 0.004*"win"
+[ 2025-07-31 00:10:28,203 ] 1197 gensim.models.ldamodel - INFO - topic #12 (0.067): 0.015*"year" + 0.011*"growth" + 0.010*"economy" + 0.010*"price" + 0.009*"rate" + 0.007*"month" + 0.007*"sale" + 0.007*"economic" + 0.007*"market" + 0.007*"figure"
+[ 2025-07-31 00:10:28,203 ] 1197 gensim.models.ldamodel - INFO - topic #7 (0.067): 0.007*"year" + 0.006*"first" + 0.005*"roddick" + 0.005*"two" + 0.005*"match" + 0.004*"game" + 0.004*"last" + 0.004*"one" + 0.004*"win" + 0.004*"time"
+[ 2025-07-31 00:10:28,203 ] 1197 gensim.models.ldamodel - INFO - topic #11 (0.067): 0.009*"election" + 0.009*"blair" + 0.009*"would" + 0.009*"labour" + 0.008*"minister" + 0.008*"brown" + 0.007*"government" + 0.006*"lord" + 0.005*"chancellor" + 0.005*"prime"
+[ 2025-07-31 00:10:28,206 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.172335, rho=0.301511
+[ 2025-07-31 00:10:28,207 ] 448 gensim.utils - INFO - LdaModel lifecycle event {'msg': 'trained LdaModel<num_terms=24432, num_topics=15, decay=0.5, chunksize=2000> in 10.49s', 'datetime': '2025-07-31T00:10:28.207379', 'gensim': '4.3.2', 'python': '3.10.0 | packaged by conda-forge | (default, Nov 10 2021, 13:20:59) [MSC v.1916 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'created'}
+[ 2025-07-31 00:10:28,211 ] 155 gensim.topic_coherence.probability_estimation - INFO - using ParallelWordOccurrenceAccumulator<processes=7, batch_size=64> to estimate probabilities from sliding windows
+[ 2025-07-31 00:10:38,286 ] 497 gensim.topic_coherence.text_analysis - INFO - 1 batches submitted to accumulate stats from 64 documents (5779 virtual)
+[ 2025-07-31 00:10:38,289 ] 497 gensim.topic_coherence.text_analysis - INFO - 2 batches submitted to accumulate stats from 128 documents (10446 virtual)
+[ 2025-07-31 00:10:38,292 ] 497 gensim.topic_coherence.text_analysis - INFO - 3 batches submitted to accumulate stats from 192 documents (15615 virtual)
+[ 2025-07-31 00:10:38,297 ] 497 gensim.topic_coherence.text_analysis - INFO - 4 batches submitted to accumulate stats from 256 documents (20526 virtual)
+[ 2025-07-31 00:10:38,303 ] 497 gensim.topic_coherence.text_analysis - INFO - 5 batches submitted to accumulate stats from 320 documents (26949 virtual)
+[ 2025-07-31 00:10:38,309 ] 497 gensim.topic_coherence.text_analysis - INFO - 6 batches submitted to accumulate stats from 384 documents (32714 virtual)
+[ 2025-07-31 00:10:38,317 ] 497 gensim.topic_coherence.text_analysis - INFO - 7 batches submitted to accumulate stats from 448 documents (38968 virtual)
+[ 2025-07-31 00:10:38,330 ] 497 gensim.topic_coherence.text_analysis - INFO - 8 batches submitted to accumulate stats from 512 documents (45456 virtual)
+[ 2025-07-31 00:10:38,349 ] 497 gensim.topic_coherence.text_analysis - INFO - 9 batches submitted to accumulate stats from 576 documents (51813 virtual)
+[ 2025-07-31 00:10:38,355 ] 497 gensim.topic_coherence.text_analysis - INFO - 10 batches submitted to accumulate stats from 640 documents (55867 virtual)
+[ 2025-07-31 00:10:38,364 ] 497 gensim.topic_coherence.text_analysis - INFO - 11 batches submitted to accumulate stats from 704 documents (62025 virtual)
+[ 2025-07-31 00:10:38,369 ] 497 gensim.topic_coherence.text_analysis - INFO - 12 batches submitted to accumulate stats from 768 documents (68382 virtual)
+[ 2025-07-31 00:10:38,376 ] 497 gensim.topic_coherence.text_analysis - INFO - 13 batches submitted to accumulate stats from 832 documents (74872 virtual)
+[ 2025-07-31 00:10:38,382 ] 497 gensim.topic_coherence.text_analysis - INFO - 14 batches submitted to accumulate stats from 896 documents (81207 virtual)
+[ 2025-07-31 00:10:38,700 ] 497 gensim.topic_coherence.text_analysis - INFO - 15 batches submitted to accumulate stats from 960 documents (89577 virtual)
+[ 2025-07-31 00:10:38,707 ] 497 gensim.topic_coherence.text_analysis - INFO - 16 batches submitted to accumulate stats from 1024 documents (95732 virtual)
+[ 2025-07-31 00:10:38,798 ] 497 gensim.topic_coherence.text_analysis - INFO - 17 batches submitted to accumulate stats from 1088 documents (101261 virtual)
+[ 2025-07-31 00:10:38,829 ] 497 gensim.topic_coherence.text_analysis - INFO - 18 batches submitted to accumulate stats from 1152 documents (105456 virtual)
+[ 2025-07-31 00:10:38,854 ] 497 gensim.topic_coherence.text_analysis - INFO - 19 batches submitted to accumulate stats from 1216 documents (111790 virtual)
+[ 2025-07-31 00:10:38,933 ] 497 gensim.topic_coherence.text_analysis - INFO - 20 batches submitted to accumulate stats from 1280 documents (120055 virtual)
+[ 2025-07-31 00:10:38,949 ] 497 gensim.topic_coherence.text_analysis - INFO - 21 batches submitted to accumulate stats from 1344 documents (125572 virtual)
+[ 2025-07-31 00:10:39,183 ] 497 gensim.topic_coherence.text_analysis - INFO - 22 batches submitted to accumulate stats from 1408 documents (131012 virtual)
+[ 2025-07-31 00:10:39,201 ] 497 gensim.topic_coherence.text_analysis - INFO - 23 batches submitted to accumulate stats from 1472 documents (137247 virtual)
+[ 2025-07-31 00:10:39,216 ] 497 gensim.topic_coherence.text_analysis - INFO - 24 batches submitted to accumulate stats from 1536 documents (142926 virtual)
+[ 2025-07-31 00:10:39,401 ] 497 gensim.topic_coherence.text_analysis - INFO - 25 batches submitted to accumulate stats from 1600 documents (148978 virtual)
+[ 2025-07-31 00:10:39,476 ] 497 gensim.topic_coherence.text_analysis - INFO - 26 batches submitted to accumulate stats from 1664 documents (157111 virtual)
+[ 2025-07-31 00:10:39,526 ] 497 gensim.topic_coherence.text_analysis - INFO - 27 batches submitted to accumulate stats from 1728 documents (165256 virtual)
+[ 2025-07-31 00:10:39,563 ] 497 gensim.topic_coherence.text_analysis - INFO - 28 batches submitted to accumulate stats from 1792 documents (170452 virtual)
+[ 2025-07-31 00:10:40,793 ] 523 gensim.topic_coherence.text_analysis - INFO - 7 accumulators retrieved from output queue
+[ 2025-07-31 00:10:40,826 ] 545 gensim.topic_coherence.text_analysis - INFO - accumulated word occurrence stats for 174598 virtual documents
+[ 2025-07-31 00:10:41,308 ] 577 gensim.models.ldamodel - INFO - using symmetric alpha at 0.05
+[ 2025-07-31 00:10:41,308 ] 577 gensim.models.ldamodel - INFO - using symmetric eta at 0.05
+[ 2025-07-31 00:10:41,308 ] 482 gensim.models.ldamodel - INFO - using serial LDA version on this node
+[ 2025-07-31 00:10:41,358 ] 948 gensim.models.ldamodel - INFO - running online (multi-pass) LDA training, 20 topics, 10 passes over the supplied corpus of 1780 documents, updating model once every 1780 documents, evaluating perplexity every 0 documents, iterating 50x with a convergence threshold of 0.001000
+[ 2025-07-31 00:10:41,358 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 0, at document #1780/1780
+[ 2025-07-31 00:10:42,709 ] 1197 gensim.models.ldamodel - INFO - topic #7 (0.050): 0.007*"game" + 0.005*"would" + 0.005*"year" + 0.004*"also" + 0.004*"people" + 0.003*"last" + 0.003*"could" + 0.003*"best" + 0.003*"time" + 0.003*"first"
+[ 2025-07-31 00:10:42,709 ] 1197 gensim.models.ldamodel - INFO - topic #0 (0.050): 0.008*"game" + 0.006*"year" + 0.003*"also" + 0.003*"would" + 0.003*"one" + 0.003*"new" + 0.003*"best" + 0.003*"world" + 0.003*"get" + 0.003*"could"
+[ 2025-07-31 00:10:42,709 ] 1197 gensim.models.ldamodel - INFO - topic #3 (0.050): 0.007*"year" + 0.005*"would" + 0.005*"also" + 0.004*"people" + 0.004*"could" + 0.004*"last" + 0.003*"best" + 0.003*"new" + 0.003*"film" + 0.003*"two"
+[ 2025-07-31 00:10:42,711 ] 1197 gensim.models.ldamodel - INFO - topic #9 (0.050): 0.006*"also" + 0.006*"year" + 0.005*"game" + 0.004*"one" + 0.004*"new" + 0.004*"set" + 0.004*"first" + 0.004*"would" + 0.003*"last" + 0.003*"could"
+[ 2025-07-31 00:10:42,711 ] 1197 gensim.models.ldamodel - INFO - topic #14 (0.050): 0.007*"year" + 0.005*"would" + 0.005*"best" + 0.004*"last" + 0.004*"new" + 0.003*"also" + 0.003*"people" + 0.003*"government" + 0.003*"award" + 0.003*"time"
+[ 2025-07-31 00:10:42,713 ] 1075 gensim.models.ldamodel - INFO - topic diff=9.225469, rho=1.000000
+[ 2025-07-31 00:10:42,714 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 1, at document #1780/1780
+[ 2025-07-31 00:10:44,003 ] 1197 gensim.models.ldamodel - INFO - topic #14 (0.050): 0.008*"best" + 0.006*"year" + 0.005*"would" + 0.004*"award" + 0.004*"wale" + 0.004*"england" + 0.004*"france" + 0.004*"film" + 0.004*"also" + 0.004*"last"
+[ 2025-07-31 00:10:44,003 ] 1197 gensim.models.ldamodel - INFO - topic #7 (0.050): 0.009*"game" + 0.006*"year" + 0.005*"would" + 0.004*"also" + 0.004*"time" + 0.004*"last" + 0.004*"best" + 0.004*"two" + 0.004*"first" + 0.003*"one"
+[ 2025-07-31 00:10:44,003 ] 1197 gensim.models.ldamodel - INFO - topic #5 (0.050): 0.007*"phone" + 0.007*"would" + 0.007*"people" + 0.007*"mobile" + 0.006*"year" + 0.005*"new" + 0.004*"say" + 0.004*"first" + 0.004*"also" + 0.004*"technology"
+[ 2025-07-31 00:10:44,003 ] 1197 gensim.models.ldamodel - INFO - topic #18 (0.050): 0.007*"year" + 0.006*"one" + 0.005*"would" + 0.005*"new" + 0.004*"market" + 0.004*"government" + 0.004*"say" + 0.004*"also" + 0.004*"people" + 0.004*"could"
+[ 2025-07-31 00:10:44,003 ] 1197 gensim.models.ldamodel - INFO - topic #1 (0.050): 0.009*"would" + 0.006*"year" + 0.006*"people" + 0.006*"new" + 0.005*"also" + 0.004*"could" + 0.004*"tax" + 0.004*"party" + 0.004*"labour" + 0.004*"one"
+[ 2025-07-31 00:10:44,012 ] 1075 gensim.models.ldamodel - INFO - topic diff=1.846088, rho=0.577350
+[ 2025-07-31 00:10:44,012 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 2, at document #1780/1780
+[ 2025-07-31 00:10:45,049 ] 1197 gensim.models.ldamodel - INFO - topic #0 (0.050): 0.015*"game" + 0.005*"year" + 0.004*"player" + 0.004*"one" + 0.004*"chelsea" + 0.003*"child" + 0.003*"good" + 0.003*"world" + 0.003*"new" + 0.003*"first"
+[ 2025-07-31 00:10:45,051 ] 1197 gensim.models.ldamodel - INFO - topic #14 (0.050): 0.009*"best" + 0.007*"england" + 0.006*"wale" + 0.006*"year" + 0.005*"france" + 0.005*"award" + 0.005*"film" + 0.005*"win" + 0.004*"six" + 0.004*"first"
+[ 2025-07-31 00:10:45,052 ] 1197 gensim.models.ldamodel - INFO - topic #15 (0.050): 0.007*"music" + 0.006*"year" + 0.006*"would" + 0.005*"new" + 0.005*"government" + 0.005*"time" + 0.004*"one" + 0.004*"people" + 0.004*"game" + 0.004*"also"
+[ 2025-07-31 00:10:45,052 ] 1197 gensim.models.ldamodel - INFO - topic #3 (0.050): 0.007*"year" + 0.006*"also" + 0.005*"film" + 0.004*"best" + 0.004*"would" + 0.004*"last" + 0.003*"two" + 0.003*"people" + 0.003*"could" + 0.003*"star"
+[ 2025-07-31 00:10:45,052 ] 1197 gensim.models.ldamodel - INFO - topic #5 (0.050): 0.009*"phone" + 0.009*"mobile" + 0.008*"people" + 0.007*"would" + 0.006*"year" + 0.005*"new" + 0.005*"technology" + 0.005*"say" + 0.004*"one" + 0.004*"also"
+[ 2025-07-31 00:10:45,055 ] 1075 gensim.models.ldamodel - INFO - topic diff=1.432333, rho=0.500000
+[ 2025-07-31 00:10:45,055 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 3, at document #1780/1780
+[ 2025-07-31 00:10:46,083 ] 1197 gensim.models.ldamodel - INFO - topic #10 (0.050): 0.006*"people" + 0.005*"club" + 0.005*"security" + 0.005*"also" + 0.005*"year" + 0.005*"microsoft" + 0.004*"software" + 0.004*"new" + 0.004*"one" + 0.004*"would"
+[ 2025-07-31 00:10:46,083 ] 1197 gensim.models.ldamodel - INFO - topic #16 (0.050): 0.007*"would" + 0.006*"liverpool" + 0.005*"service" + 0.005*"new" + 0.005*"people" + 0.005*"game" + 0.005*"gerrard" + 0.005*"mobile" + 0.004*"player" + 0.004*"also"
+[ 2025-07-31 00:10:46,083 ] 1197 gensim.models.ldamodel - INFO - topic #15 (0.050): 0.007*"music" + 0.006*"year" + 0.005*"would" + 0.005*"new" + 0.005*"government" + 0.005*"people" + 0.005*"time" + 0.005*"one" + 0.004*"game" + 0.003*"party"
+[ 2025-07-31 00:10:46,083 ] 1197 gensim.models.ldamodel - INFO - topic #17 (0.050): 0.009*"government" + 0.008*"yukos" + 0.008*"lord" + 0.008*"would" + 0.006*"minister" + 0.006*"bill" + 0.006*"company" + 0.005*"law" + 0.005*"blair" + 0.005*"card"
+[ 2025-07-31 00:10:46,083 ] 1197 gensim.models.ldamodel - INFO - topic #11 (0.050): 0.008*"would" + 0.007*"election" + 0.007*"labour" + 0.007*"year" + 0.005*"brown" + 0.005*"bank" + 0.005*"government" + 0.004*"say" + 0.004*"rate" + 0.004*"economy"
+[ 2025-07-31 00:10:46,088 ] 1075 gensim.models.ldamodel - INFO - topic diff=1.086285, rho=0.447214
+[ 2025-07-31 00:10:46,088 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 4, at document #1780/1780
+[ 2025-07-31 00:10:47,107 ] 1197 gensim.models.ldamodel - INFO - topic #1 (0.050): 0.011*"would" + 0.008*"people" + 0.007*"tax" + 0.007*"labour" + 0.007*"party" + 0.006*"tory" + 0.006*"plan" + 0.006*"year" + 0.005*"government" + 0.005*"new"
+[ 2025-07-31 00:10:47,107 ] 1197 gensim.models.ldamodel - INFO - topic #0 (0.050): 0.017*"game" + 0.006*"chelsea" + 0.005*"player" + 0.004*"good" + 0.004*"year" + 0.004*"one" + 0.004*"play" + 0.003*"first" + 0.003*"child" + 0.003*"could"
+[ 2025-07-31 00:10:47,107 ] 1197 gensim.models.ldamodel - INFO - topic #14 (0.050): 0.011*"england" + 0.009*"best" + 0.007*"wale" + 0.006*"film" + 0.006*"france" + 0.006*"win" + 0.006*"award" + 0.006*"six" + 0.005*"year" + 0.005*"ireland"
+[ 2025-07-31 00:10:47,107 ] 1197 gensim.models.ldamodel - INFO - topic #19 (0.050): 0.007*"film" + 0.006*"people" + 0.005*"year" + 0.005*"say" + 0.005*"also" + 0.005*"online" + 0.004*"software" + 0.004*"could" + 0.004*"time" + 0.004*"new"
+[ 2025-07-31 00:10:47,107 ] 1197 gensim.models.ldamodel - INFO - topic #9 (0.050): 0.012*"game" + 0.008*"open" + 0.007*"first" + 0.007*"year" + 0.007*"set" + 0.006*"title" + 0.006*"also" + 0.005*"win" + 0.005*"last" + 0.005*"one"
+[ 2025-07-31 00:10:47,110 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.819684, rho=0.408248
+[ 2025-07-31 00:10:47,110 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 5, at document #1780/1780
+[ 2025-07-31 00:10:48,088 ] 1197 gensim.models.ldamodel - INFO - topic #14 (0.050): 0.012*"england" + 0.009*"best" + 0.007*"wale" + 0.007*"film" + 0.006*"win" + 0.006*"france" + 0.006*"six" + 0.006*"ireland" + 0.006*"award" + 0.005*"year"
+[ 2025-07-31 00:10:48,088 ] 1197 gensim.models.ldamodel - INFO - topic #5 (0.050): 0.013*"mobile" + 0.012*"phone" + 0.010*"people" + 0.007*"technology" + 0.006*"would" + 0.006*"year" + 0.006*"music" + 0.006*"service" + 0.005*"new" + 0.005*"network"
+[ 2025-07-31 00:10:48,088 ] 1197 gensim.models.ldamodel - INFO - topic #11 (0.050): 0.009*"would" + 0.009*"election" + 0.009*"labour" + 0.007*"brown" + 0.006*"year" + 0.005*"bank" + 0.005*"government" + 0.005*"chancellor" + 0.005*"economy" + 0.004*"minister"
+[ 2025-07-31 00:10:48,088 ] 1197 gensim.models.ldamodel - INFO - topic #19 (0.050): 0.007*"film" + 0.006*"people" + 0.005*"say" + 0.005*"year" + 0.005*"also" + 0.005*"online" + 0.005*"software" + 0.004*"blog" + 0.004*"could" + 0.004*"one"
+[ 2025-07-31 00:10:48,088 ] 1197 gensim.models.ldamodel - INFO - topic #10 (0.050): 0.007*"microsoft" + 0.006*"security" + 0.006*"club" + 0.005*"software" + 0.005*"people" + 0.005*"also" + 0.005*"window" + 0.005*"year" + 0.004*"new" + 0.004*"one"
+[ 2025-07-31 00:10:48,088 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.618603, rho=0.377964
+[ 2025-07-31 00:10:48,093 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 6, at document #1780/1780
+[ 2025-07-31 00:10:49,053 ] 1197 gensim.models.ldamodel - INFO - topic #18 (0.050): 0.011*"year" + 0.008*"economy" + 0.007*"market" + 0.007*"growth" + 0.007*"economic" + 0.006*"rate" + 0.005*"government" + 0.005*"figure" + 0.005*"month" + 0.005*"new"
+[ 2025-07-31 00:10:49,053 ] 1197 gensim.models.ldamodel - INFO - topic #13 (0.050): 0.011*"year" + 0.010*"best" + 0.010*"award" + 0.008*"song" + 0.007*"film" + 0.007*"music" + 0.006*"also" + 0.005*"chart" + 0.005*"one" + 0.005*"sale"
+[ 2025-07-31 00:10:49,053 ] 1197 gensim.models.ldamodel - INFO - topic #8 (0.050): 0.007*"would" + 0.005*"blair" + 0.005*"new" + 0.005*"also" + 0.004*"minister" + 0.004*"club" + 0.004*"game" + 0.004*"one" + 0.004*"people" + 0.004*"united"
+[ 2025-07-31 00:10:49,053 ] 1197 gensim.models.ldamodel - INFO - topic #9 (0.050): 0.014*"game" + 0.009*"open" + 0.008*"first" + 0.007*"set" + 0.007*"year" + 0.006*"title" + 0.006*"win" + 0.006*"also" + 0.005*"last" + 0.005*"console"
+[ 2025-07-31 00:10:49,053 ] 1197 gensim.models.ldamodel - INFO - topic #7 (0.050): 0.010*"game" + 0.007*"year" + 0.005*"time" + 0.005*"two" + 0.005*"cup" + 0.004*"one" + 0.004*"last" + 0.004*"win" + 0.004*"first" + 0.004*"player"
+[ 2025-07-31 00:10:49,053 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.470620, rho=0.353553
+[ 2025-07-31 00:10:49,059 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 7, at document #1780/1780
+[ 2025-07-31 00:10:50,022 ] 1197 gensim.models.ldamodel - INFO - topic #4 (0.050): 0.012*"company" + 0.011*"firm" + 0.011*"share" + 0.009*"profit" + 0.008*"year" + 0.008*"sale" + 0.007*"market" + 0.006*"executive" + 0.006*"would" + 0.005*"deal"
+[ 2025-07-31 00:10:50,026 ] 1197 gensim.models.ldamodel - INFO - topic #8 (0.050): 0.007*"would" + 0.005*"blair" + 0.005*"also" + 0.005*"new" + 0.004*"club" + 0.004*"minister" + 0.004*"game" + 0.004*"united" + 0.004*"one" + 0.004*"people"
+[ 2025-07-31 00:10:50,026 ] 1197 gensim.models.ldamodel - INFO - topic #10 (0.050): 0.008*"microsoft" + 0.008*"security" + 0.006*"software" + 0.006*"window" + 0.006*"club" + 0.005*"program" + 0.005*"also" + 0.005*"people" + 0.004*"new" + 0.004*"year"
+[ 2025-07-31 00:10:50,026 ] 1197 gensim.models.ldamodel - INFO - topic #2 (0.050): 0.007*"world" + 0.007*"number" + 0.007*"one" + 0.007*"year" + 0.006*"top" + 0.006*"best" + 0.005*"olympic" + 0.005*"record" + 0.004*"race" + 0.004*"last"
+[ 2025-07-31 00:10:50,026 ] 1197 gensim.models.ldamodel - INFO - topic #15 (0.050): 0.007*"music" + 0.006*"year" + 0.006*"new" + 0.005*"people" + 0.005*"would" + 0.005*"government" + 0.005*"one" + 0.005*"party" + 0.005*"time" + 0.004*"like"
+[ 2025-07-31 00:10:50,026 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.362429, rho=0.333333
+[ 2025-07-31 00:10:50,030 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 8, at document #1780/1780
+[ 2025-07-31 00:10:50,975 ] 1197 gensim.models.ldamodel - INFO - topic #17 (0.050): 0.012*"lord" + 0.010*"government" + 0.009*"would" + 0.008*"yukos" + 0.008*"law" + 0.007*"bill" + 0.007*"minister" + 0.007*"court" + 0.005*"blair" + 0.005*"company"
+[ 2025-07-31 00:10:50,975 ] 1197 gensim.models.ldamodel - INFO - topic #6 (0.050): 0.008*"film" + 0.007*"year" + 0.007*"people" + 0.007*"new" + 0.006*"china" + 0.005*"also" + 0.004*"would" + 0.004*"could" + 0.004*"one" + 0.003*"technology"
+[ 2025-07-31 00:10:50,982 ] 1197 gensim.models.ldamodel - INFO - topic #16 (0.050): 0.009*"liverpool" + 0.008*"would" + 0.007*"gerrard" + 0.006*"new" + 0.005*"parry" + 0.005*"game" + 0.005*"people" + 0.005*"player" + 0.004*"report" + 0.004*"team"
+[ 2025-07-31 00:10:50,982 ] 1197 gensim.models.ldamodel - INFO - topic #19 (0.050): 0.007*"people" + 0.007*"film" + 0.006*"say" + 0.006*"online" + 0.005*"blog" + 0.005*"software" + 0.005*"year" + 0.005*"also" + 0.004*"could" + 0.004*"one"
+[ 2025-07-31 00:10:50,982 ] 1197 gensim.models.ldamodel - INFO - topic #10 (0.050): 0.009*"microsoft" + 0.008*"security" + 0.007*"software" + 0.007*"window" + 0.006*"program" + 0.006*"club" + 0.005*"also" + 0.005*"people" + 0.004*"new" + 0.004*"spyware"
+[ 2025-07-31 00:10:50,982 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.282591, rho=0.316228
+[ 2025-07-31 00:10:50,982 ] 1002 gensim.models.ldamodel - INFO - PROGRESS: pass 9, at document #1780/1780
+[ 2025-07-31 00:10:51,948 ] 1197 gensim.models.ldamodel - INFO - topic #2 (0.050): 0.008*"world" + 0.007*"number" + 0.007*"one" + 0.007*"year" + 0.006*"top" + 0.006*"best" + 0.005*"olympic" + 0.005*"race" + 0.005*"record" + 0.004*"european"
+[ 2025-07-31 00:10:51,948 ] 1197 gensim.models.ldamodel - INFO - topic #1 (0.050): 0.012*"would" + 0.008*"people" + 0.008*"tory" + 0.008*"party" + 0.008*"labour" + 0.008*"tax" + 0.007*"government" + 0.007*"plan" + 0.006*"election" + 0.005*"howard"
+[ 2025-07-31 00:10:51,948 ] 1197 gensim.models.ldamodel - INFO - topic #15 (0.050): 0.007*"music" + 0.006*"year" + 0.006*"new" + 0.005*"people" + 0.005*"party" + 0.005*"would" + 0.005*"one" + 0.005*"government" + 0.005*"time" + 0.004*"like"
+[ 2025-07-31 00:10:51,948 ] 1197 gensim.models.ldamodel - INFO - topic #13 (0.050): 0.013*"award" + 0.012*"year" + 0.012*"best" + 0.010*"film" + 0.009*"song" + 0.008*"music" + 0.006*"also" + 0.005*"show" + 0.005*"chart" + 0.005*"album"
+[ 2025-07-31 00:10:51,951 ] 1197 gensim.models.ldamodel - INFO - topic #3 (0.050): 0.008*"film" + 0.007*"also" + 0.006*"year" + 0.004*"star" + 0.004*"last" + 0.004*"robinson" + 0.004*"two" + 0.003*"sale" + 0.003*"gara" + 0.003*"best"
+[ 2025-07-31 00:10:51,953 ] 1075 gensim.models.ldamodel - INFO - topic diff=0.223478, rho=0.301511
+[ 2025-07-31 00:10:51,953 ] 448 gensim.utils - INFO - LdaModel lifecycle event {'msg': 'trained LdaModel<num_terms=24432, num_topics=20, decay=0.5, chunksize=2000> in 10.60s', 'datetime': '2025-07-31T00:10:51.953289', 'gensim': '4.3.2', 'python': '3.10.0 | packaged by conda-forge | (default, Nov 10 2021, 13:20:59) [MSC v.1916 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'created'}
+[ 2025-07-31 00:10:51,959 ] 155 gensim.topic_coherence.probability_estimation - INFO - using ParallelWordOccurrenceAccumulator<processes=7, batch_size=64> to estimate probabilities from sliding windows
+[ 2025-07-31 00:11:01,481 ] 497 gensim.topic_coherence.text_analysis - INFO - 1 batches submitted to accumulate stats from 64 documents (5779 virtual)
+[ 2025-07-31 00:11:01,489 ] 497 gensim.topic_coherence.text_analysis - INFO - 2 batches submitted to accumulate stats from 128 documents (10446 virtual)
+[ 2025-07-31 00:11:01,489 ] 497 gensim.topic_coherence.text_analysis - INFO - 3 batches submitted to accumulate stats from 192 documents (15615 virtual)
+[ 2025-07-31 00:11:01,497 ] 497 gensim.topic_coherence.text_analysis - INFO - 4 batches submitted to accumulate stats from 256 documents (20526 virtual)
+[ 2025-07-31 00:11:01,497 ] 497 gensim.topic_coherence.text_analysis - INFO - 5 batches submitted to accumulate stats from 320 documents (26949 virtual)
+[ 2025-07-31 00:11:01,507 ] 497 gensim.topic_coherence.text_analysis - INFO - 6 batches submitted to accumulate stats from 384 documents (32714 virtual)
+[ 2025-07-31 00:11:01,516 ] 497 gensim.topic_coherence.text_analysis - INFO - 7 batches submitted to accumulate stats from 448 documents (38968 virtual)
+[ 2025-07-31 00:11:01,538 ] 497 gensim.topic_coherence.text_analysis - INFO - 8 batches submitted to accumulate stats from 512 documents (45456 virtual)
+[ 2025-07-31 00:11:01,548 ] 497 gensim.topic_coherence.text_analysis - INFO - 9 batches submitted to accumulate stats from 576 documents (51813 virtual)
+[ 2025-07-31 00:11:01,576 ] 497 gensim.topic_coherence.text_analysis - INFO - 10 batches submitted to accumulate stats from 640 documents (55867 virtual)
+[ 2025-07-31 00:11:01,582 ] 497 gensim.topic_coherence.text_analysis - INFO - 11 batches submitted to accumulate stats from 704 documents (62025 virtual)
+[ 2025-07-31 00:11:01,590 ] 497 gensim.topic_coherence.text_analysis - INFO - 12 batches submitted to accumulate stats from 768 documents (68382 virtual)
+[ 2025-07-31 00:11:01,596 ] 497 gensim.topic_coherence.text_analysis - INFO - 13 batches submitted to accumulate stats from 832 documents (74872 virtual)
+[ 2025-07-31 00:11:01,602 ] 497 gensim.topic_coherence.text_analysis - INFO - 14 batches submitted to accumulate stats from 896 documents (81207 virtual)
+[ 2025-07-31 00:11:01,959 ] 497 gensim.topic_coherence.text_analysis - INFO - 15 batches submitted to accumulate stats from 960 documents (89577 virtual)
+[ 2025-07-31 00:11:02,004 ] 497 gensim.topic_coherence.text_analysis - INFO - 16 batches submitted to accumulate stats from 1024 documents (95732 virtual)
+[ 2025-07-31 00:11:02,032 ] 497 gensim.topic_coherence.text_analysis - INFO - 17 batches submitted to accumulate stats from 1088 documents (101261 virtual)
+[ 2025-07-31 00:11:02,073 ] 497 gensim.topic_coherence.text_analysis - INFO - 18 batches submitted to accumulate stats from 1152 documents (105456 virtual)
+[ 2025-07-31 00:11:02,142 ] 497 gensim.topic_coherence.text_analysis - INFO - 19 batches submitted to accumulate stats from 1216 documents (111790 virtual)
+[ 2025-07-31 00:11:02,216 ] 497 gensim.topic_coherence.text_analysis - INFO - 20 batches submitted to accumulate stats from 1280 documents (120055 virtual)
+[ 2025-07-31 00:11:02,237 ] 497 gensim.topic_coherence.text_analysis - INFO - 21 batches submitted to accumulate stats from 1344 documents (125572 virtual)
+[ 2025-07-31 00:11:02,478 ] 497 gensim.topic_coherence.text_analysis - INFO - 22 batches submitted to accumulate stats from 1408 documents (131012 virtual)
+[ 2025-07-31 00:11:02,520 ] 497 gensim.topic_coherence.text_analysis - INFO - 23 batches submitted to accumulate stats from 1472 documents (137247 virtual)
+[ 2025-07-31 00:11:02,645 ] 497 gensim.topic_coherence.text_analysis - INFO - 24 batches submitted to accumulate stats from 1536 documents (142926 virtual)
+[ 2025-07-31 00:11:02,714 ] 497 gensim.topic_coherence.text_analysis - INFO - 25 batches submitted to accumulate stats from 1600 documents (148978 virtual)
+[ 2025-07-31 00:11:02,808 ] 497 gensim.topic_coherence.text_analysis - INFO - 26 batches submitted to accumulate stats from 1664 documents (157111 virtual)
+[ 2025-07-31 00:11:02,873 ] 497 gensim.topic_coherence.text_analysis - INFO - 27 batches submitted to accumulate stats from 1728 documents (165256 virtual)
+[ 2025-07-31 00:11:02,881 ] 497 gensim.topic_coherence.text_analysis - INFO - 28 batches submitted to accumulate stats from 1792 documents (170452 virtual)
+[ 2025-07-31 00:11:04,301 ] 523 gensim.topic_coherence.text_analysis - INFO - 7 accumulators retrieved from output queue
+[ 2025-07-31 00:11:04,342 ] 545 gensim.topic_coherence.text_analysis - INFO - accumulated word occurrence stats for 174598 virtual documents
+[ 2025-07-31 00:11:05,024 ] 435 gensim.models.lsimodel - INFO - using serial LSI version on this node
+[ 2025-07-31 00:11:05,024 ] 486 gensim.models.lsimodel - INFO - updating model with new documents
+[ 2025-07-31 00:11:05,024 ] 517 gensim.models.lsimodel - INFO - preparing a new chunk of documents
+[ 2025-07-31 00:11:05,058 ] 948 gensim.models.lsimodel - INFO - using 100 extra samples and 2 power iterations
+[ 2025-07-31 00:11:05,058 ] 956 gensim.models.lsimodel - INFO - 1st phase: constructing (24432, 110) action matrix
+[ 2025-07-31 00:11:05,091 ] 974 gensim.models.lsimodel - INFO - orthonormalizing (24432, 110) action matrix
+[ 2025-07-31 00:11:06,347 ] 1026 gensim.models.lsimodel - INFO - 2nd phase: running dense svd on (110, 1780) matrix
+[ 2025-07-31 00:11:06,425 ] 1052 gensim.models.lsimodel - INFO - computing the final decomposition
+[ 2025-07-31 00:11:06,425 ] 106 gensim.models.lsimodel - INFO - keeping 10 factors (discarding 57.006% of energy spectrum)
+[ 2025-07-31 00:11:06,435 ] 544 gensim.models.lsimodel - INFO - processed documents up to #1780
+[ 2025-07-31 00:11:06,435 ] 734 gensim.models.lsimodel - INFO - topic #0(273.567): 0.244*"year" + 0.232*"people" + 0.227*"would" + 0.171*"new" + 0.164*"one" + 0.151*"also" + 0.146*"game" + 0.129*"time" + 0.128*"music" + 0.127*"could"
+[ 2025-07-31 00:11:06,435 ] 734 gensim.models.lsimodel - INFO - topic #1(156.006): 0.407*"best" + 0.388*"song" + 0.324*"music" + 0.226*"award" + 0.185*"year" + 0.150*"angel" + -0.147*"would" + -0.137*"government" + 0.130*"robbie" + -0.128*"labour"
+[ 2025-07-31 00:11:06,438 ] 734 gensim.models.lsimodel - INFO - topic #2(138.243): 0.495*"game" + -0.197*"labour" + -0.191*"government" + -0.188*"party" + -0.168*"song" + -0.160*"election" + -0.148*"best" + 0.141*"mobile" + -0.135*"blair" + -0.128*"would"
+[ 2025-07-31 00:11:06,438 ] 734 gensim.models.lsimodel - INFO - topic #3(127.427): -0.324*"music" + 0.304*"game" + -0.265*"mobile" + -0.235*"people" + -0.230*"phone" + -0.150*"technology" + -0.134*"service" + 0.129*"best" + 0.114*"win" + -0.112*"urban"
+[ 2025-07-31 00:11:06,440 ] 734 gensim.models.lsimodel - INFO - topic #4(116.911): -0.391*"music" + 0.273*"year" + -0.216*"urban" + -0.210*"party" + -0.205*"game" + 0.194*"wage" + 0.171*"film" + 0.147*"increase" + 0.146*"minimum" + -0.124*"labour"
+[ 2025-07-31 00:11:06,440 ] 448 gensim.utils - INFO - LsiModel lifecycle event {'msg': 'trained LsiModel<num_terms=24432, num_topics=10, decay=1.0, chunksize=20000> in 1.42s', 'datetime': '2025-07-31T00:11:06.440901', 'gensim': '4.3.2', 'python': '3.10.0 | packaged by conda-forge | (default, Nov 10 2021, 13:20:59) [MSC v.1916 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'created'}
+[ 2025-07-31 00:11:06,447 ] 155 gensim.topic_coherence.probability_estimation - INFO - using ParallelWordOccurrenceAccumulator<processes=7, batch_size=64> to estimate probabilities from sliding windows
+[ 2025-07-31 00:11:15,896 ] 497 gensim.topic_coherence.text_analysis - INFO - 1 batches submitted to accumulate stats from 64 documents (5779 virtual)
+[ 2025-07-31 00:11:15,897 ] 497 gensim.topic_coherence.text_analysis - INFO - 2 batches submitted to accumulate stats from 128 documents (10446 virtual)
+[ 2025-07-31 00:11:15,897 ] 497 gensim.topic_coherence.text_analysis - INFO - 3 batches submitted to accumulate stats from 192 documents (15615 virtual)
+[ 2025-07-31 00:11:15,905 ] 497 gensim.topic_coherence.text_analysis - INFO - 4 batches submitted to accumulate stats from 256 documents (20526 virtual)
+[ 2025-07-31 00:11:15,905 ] 497 gensim.topic_coherence.text_analysis - INFO - 5 batches submitted to accumulate stats from 320 documents (26949 virtual)
+[ 2025-07-31 00:11:15,913 ] 497 gensim.topic_coherence.text_analysis - INFO - 6 batches submitted to accumulate stats from 384 documents (32714 virtual)
+[ 2025-07-31 00:11:15,923 ] 497 gensim.topic_coherence.text_analysis - INFO - 7 batches submitted to accumulate stats from 448 documents (38968 virtual)
+[ 2025-07-31 00:11:15,943 ] 497 gensim.topic_coherence.text_analysis - INFO - 8 batches submitted to accumulate stats from 512 documents (45456 virtual)
+[ 2025-07-31 00:11:15,957 ] 497 gensim.topic_coherence.text_analysis - INFO - 9 batches submitted to accumulate stats from 576 documents (51813 virtual)
+[ 2025-07-31 00:11:15,961 ] 497 gensim.topic_coherence.text_analysis - INFO - 10 batches submitted to accumulate stats from 640 documents (55867 virtual)
+[ 2025-07-31 00:11:15,967 ] 497 gensim.topic_coherence.text_analysis - INFO - 11 batches submitted to accumulate stats from 704 documents (62025 virtual)
+[ 2025-07-31 00:11:15,972 ] 497 gensim.topic_coherence.text_analysis - INFO - 12 batches submitted to accumulate stats from 768 documents (68382 virtual)
+[ 2025-07-31 00:11:15,983 ] 497 gensim.topic_coherence.text_analysis - INFO - 13 batches submitted to accumulate stats from 832 documents (74872 virtual)
+[ 2025-07-31 00:11:15,990 ] 497 gensim.topic_coherence.text_analysis - INFO - 14 batches submitted to accumulate stats from 896 documents (81207 virtual)
+[ 2025-07-31 00:11:16,175 ] 497 gensim.topic_coherence.text_analysis - INFO - 15 batches submitted to accumulate stats from 960 documents (89577 virtual)
+[ 2025-07-31 00:11:16,294 ] 497 gensim.topic_coherence.text_analysis - INFO - 16 batches submitted to accumulate stats from 1024 documents (95732 virtual)
+[ 2025-07-31 00:11:16,300 ] 497 gensim.topic_coherence.text_analysis - INFO - 17 batches submitted to accumulate stats from 1088 documents (101261 virtual)
+[ 2025-07-31 00:11:16,304 ] 497 gensim.topic_coherence.text_analysis - INFO - 18 batches submitted to accumulate stats from 1152 documents (105456 virtual)
+[ 2025-07-31 00:11:16,308 ] 497 gensim.topic_coherence.text_analysis - INFO - 19 batches submitted to accumulate stats from 1216 documents (111790 virtual)
+[ 2025-07-31 00:11:16,321 ] 497 gensim.topic_coherence.text_analysis - INFO - 20 batches submitted to accumulate stats from 1280 documents (120055 virtual)
+[ 2025-07-31 00:11:16,346 ] 497 gensim.topic_coherence.text_analysis - INFO - 21 batches submitted to accumulate stats from 1344 documents (125572 virtual)
+[ 2025-07-31 00:11:16,533 ] 497 gensim.topic_coherence.text_analysis - INFO - 22 batches submitted to accumulate stats from 1408 documents (131012 virtual)
+[ 2025-07-31 00:11:16,584 ] 497 gensim.topic_coherence.text_analysis - INFO - 23 batches submitted to accumulate stats from 1472 documents (137247 virtual)
+[ 2025-07-31 00:11:16,603 ] 497 gensim.topic_coherence.text_analysis - INFO - 24 batches submitted to accumulate stats from 1536 documents (142926 virtual)
+[ 2025-07-31 00:11:16,639 ] 497 gensim.topic_coherence.text_analysis - INFO - 25 batches submitted to accumulate stats from 1600 documents (148978 virtual)
+[ 2025-07-31 00:11:16,674 ] 497 gensim.topic_coherence.text_analysis - INFO - 26 batches submitted to accumulate stats from 1664 documents (157111 virtual)
+[ 2025-07-31 00:11:16,681 ] 497 gensim.topic_coherence.text_analysis - INFO - 27 batches submitted to accumulate stats from 1728 documents (165256 virtual)
+[ 2025-07-31 00:11:16,720 ] 497 gensim.topic_coherence.text_analysis - INFO - 28 batches submitted to accumulate stats from 1792 documents (170452 virtual)
+[ 2025-07-31 00:11:17,680 ] 523 gensim.topic_coherence.text_analysis - INFO - 7 accumulators retrieved from output queue
+[ 2025-07-31 00:11:17,700 ] 545 gensim.topic_coherence.text_analysis - INFO - accumulated word occurrence stats for 174598 virtual documents
+[ 2025-07-31 00:11:18,205 ] 448 gensim.utils - INFO - LdaState lifecycle event {'fname_or_handle': 'Artifacts\\07_31_2025_00_09_15\\model_trainer\\lda_model\\model.lda.state', 'separately': 'None', 'sep_limit': 10485760, 'ignore': frozenset(), 'datetime': '2025-07-31T00:11:18.205695', 'gensim': '4.3.2', 'python': '3.10.0 | packaged by conda-forge | (default, Nov 10 2021, 13:20:59) [MSC v.1916 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'saving'}
+[ 2025-07-31 00:11:18,205 ] 618 gensim.utils - INFO - saved Artifacts\07_31_2025_00_09_15\model_trainer\lda_model\model.lda.state
+[ 2025-07-31 00:11:18,218 ] 448 gensim.utils - INFO - LdaModel lifecycle event {'fname_or_handle': 'Artifacts\\07_31_2025_00_09_15\\model_trainer\\lda_model\\model.lda', 'separately': "['expElogbeta', 'sstats']", 'sep_limit': 10485760, 'ignore': ['state', 'id2word', 'dispatcher'], 'datetime': '2025-07-31T00:11:18.218900', 'gensim': '4.3.2', 'python': '3.10.0 | packaged by conda-forge | (default, Nov 10 2021, 13:20:59) [MSC v.1916 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'saving'}
+[ 2025-07-31 00:11:18,218 ] 678 gensim.utils - INFO - storing np array 'expElogbeta' to Artifacts\07_31_2025_00_09_15\model_trainer\lda_model\model.lda.expElogbeta.npy
+[ 2025-07-31 00:11:18,222 ] 710 gensim.utils - INFO - not storing attribute state
+[ 2025-07-31 00:11:18,222 ] 710 gensim.utils - INFO - not storing attribute id2word
+[ 2025-07-31 00:11:18,222 ] 710 gensim.utils - INFO - not storing attribute dispatcher
+[ 2025-07-31 00:11:18,222 ] 618 gensim.utils - INFO - saved Artifacts\07_31_2025_00_09_15\model_trainer\lda_model\model.lda
+[ 2025-07-31 00:11:18,222 ] 448 gensim.utils - INFO - Projection lifecycle event {'fname_or_handle': 'Artifacts\\07_31_2025_00_09_15\\model_trainer\\lsa_model\\model.lsa.projection', 'separately': 'None', 'sep_limit': 10485760, 'ignore': frozenset(), 'datetime': '2025-07-31T00:11:18.222465', 'gensim': '4.3.2', 'python': '3.10.0 | packaged by conda-forge | (default, Nov 10 2021, 13:20:59) [MSC v.1916 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'saving'}
+[ 2025-07-31 00:11:18,226 ] 618 gensim.utils - INFO - saved Artifacts\07_31_2025_00_09_15\model_trainer\lsa_model\model.lsa.projection
+[ 2025-07-31 00:11:18,226 ] 448 gensim.utils - INFO - LsiModel lifecycle event {'fname_or_handle': 'Artifacts\\07_31_2025_00_09_15\\model_trainer\\lsa_model\\model.lsa', 'separately': 'None', 'sep_limit': 10485760, 'ignore': ['projection', 'dispatcher'], 'datetime': '2025-07-31T00:11:18.226517', 'gensim': '4.3.2', 'python': '3.10.0 | packaged by conda-forge | (default, Nov 10 2021, 13:20:59) [MSC v.1916 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'saving'}
+[ 2025-07-31 00:11:18,226 ] 710 gensim.utils - INFO - not storing attribute projection
+[ 2025-07-31 00:11:18,226 ] 710 gensim.utils - INFO - not storing attribute dispatcher
+[ 2025-07-31 00:11:18,238 ] 618 gensim.utils - INFO - saved Artifacts\07_31_2025_00_09_15\model_trainer\lsa_model\model.lsa
+[ 2025-07-31 00:11:18,238 ] 448 gensim.utils - INFO - Dictionary lifecycle event {'fname_or_handle': 'Artifacts\\07_31_2025_00_09_15\\model_trainer\\dictionary.dict', 'separately': 'None', 'sep_limit': 10485760, 'ignore': frozenset(), 'datetime': '2025-07-31T00:11:18.238992', 'gensim': '4.3.2', 'python': '3.10.0 | packaged by conda-forge | (default, Nov 10 2021, 13:20:59) [MSC v.1916 64 bit (AMD64)]', 'platform': 'Windows-10-10.0.26100-SP0', 'event': 'saving'}
+[ 2025-07-31 00:11:18,251 ] 618 gensim.utils - INFO - saved Artifacts\07_31_2025_00_09_15\model_trainer\dictionary.dict
+[ 2025-07-31 00:11:43,156 ] 56 root - INFO - Model Training Completed
